@@ -1,0 +1,49 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 10 Jan 2023, 9:44:40 pm
+    Author     : jurgentan
+*/
+
+h2{
+    text-decoration: underline
+}
+
+figure {
+    display: inline-block;
+}
+
+figure img {
+    /*border: 1px #000;*/ 
+    border-style: double;
+    border-width: 5px;
+    border-radius: 4px;  
+    padding: 5px;
+}
+
+figcaption {
+    font-style: italic;
+    color: #ddd;
+    text-align: center;
+}
+
+
+
+footer p {
+    border-top-style: solid;
+    /*border: 1px solid #000;*/
+    text-align: center;
+    font-style: italic;
+    font-size: 10px;
+}
+
+.img-popup {
+    position: absolute;
+    transform: scale(1.2);
+    left: 20%;
+    
+    
+}
+
