@@ -20,25 +20,54 @@
     <body>
         <?php
         include "nav.inc.php";
+        $login_error = "";
+        $register_msg = "";
+        $success_reset = "";
+        $email = "";
+        $password = "";
+
+        if (isset($_GET["error"])) {
+            if ($_GET["error"] == "empty") {
+                $login_error = "Please fill both <b> email and password </b> fields.";
+            } else if ($_GET["error"] == "incorrect") {
+                $login_error = " Sorry, it seems that the <b> email and/or password is incorrect </b>. Please try again.";
+            }
+        }
+        if (isset($_GET["register"])) {
+            if ($_GET["register"] == "success") {
+                $register_msg = "Registration success! Please log-in.";
+            } else if ($_GET["register"] == "exist") {
+                $register_msg = "You have an existing email! Please log-in.";
+            } 
+        }
         ?>
         <main class="container">
+            <?php if($register_msg): ?>
+                <div id="registerSuccessMessage" class="alert" role="alert">
+                    <?php echo $register_msg ?>
+                </div>
+            <?php endif; ?>
             <h1>Member Log In</h1>
             <p>
                 Do not have an account? please go to the
                 <a href="register.php">Sign Up page</a>.
             </p>
-            <form action="process_login.php" method="post" novalidate="">
+            <form action="process/process_login.php" method="POST">
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input class="form-control" type="email" id="email" required name="email" placeholder="Enter email">
+                    <label for="emailAddressField"></label>
+                    <input type="email" class="text-field" id="emailAddressField" placeholder="Email Address" name="email" value="<?php echo $email ?>" >
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input class="form-control" type="password" id="pwd" required name="pwd" placeholder="Enter password">
+                    <label for="passwordField"></label>
+                    <input type="password" class="text-field" id="passwordField" placeholder="Password" name="password" value="<?php echo $password ?>" >
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </div>
+                <input type="hidden" name="authenticate" value="true">
+                <?php if($login_error): ?>
+                    <div id="loginErrorMessage" class="alert alert-danger" role="alert">
+                        <?php echo $login_error ?>
+                    </div>
+                <?php endif; ?>
+                <button class="btn btn-primary" type="submit">Log In</button>
             </form>
         </main>
         <?php

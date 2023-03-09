@@ -8,12 +8,12 @@ $content2 = "<li class='nav-item'>
 			 <li class='nav-item'>
 		     <a class='nav-link' href='login.php'>Login</a></li>";
 
-if(isset($_SESSION["username"])) { 
-	$content1 = "Welcome <b>$_SESSION[username]</b>";
+if(isset($_SESSION["fname"])) { 
+	$content1 = "Welcome <b>$_SESSION[fname]</b>";
 	$content2 = "<li class=' nav-item'>
-				<a class='nav-link' >".$_SESSION["username"]." |</a></li>
+				<a class='nav-link' >".$_SESSION["fname"]." |</a></li>
 				<li class='nav-item'>
-				<a class='nav-link' href='process_logout.php'>Logout</a></li>";
+				<a class='nav-link' href='process/process_logout.php'>Logout</a></li>";
 }
 ?>
 

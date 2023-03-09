@@ -19,16 +19,25 @@
     </head>
     <body>
         <?php
-        include "nav.inc.php";
+            include "nav.inc.php";
+            $verify_bot = "Verify";
+            $register_error = "";
+            if (isset($_GET["error"])) {
+                $register_error = "Sorry, it seems that something went wrong </b>. Please try again.";
+            }
         ?>
         <main class="container">
+            <?php if($register_error): ?>
+                <div id="registerErrorMessage" class="alert alert-danger" role="alert">
+                    <?php echo $register_error ?>
+                </div>
+            <?php endif; ?>
             <h1>Member Registration</h1>
             <p>
                 For existing members, please go to the
                 <a href="login.php">Sign In page</a>.
             </p>
-            <form action="process_register.php" method="post" novalidate="">
-           <!-- <form action="process_register.php" method="post" novalidate="">-->    
+            <form action="process/process_register.php" method="post">
                 <div class="form-group">
                     <label for="fname">First Name:</label>
                     <input class="form-control" type="text" id="fname" maxlength="45" name="fname" placeholder="Enter first name">
@@ -49,34 +58,20 @@
                     <label for="pwd_confirm">Confirm Password:</label>
                     <input class="form-control" type="password" id="pwd_confirm" required name="pwd_confirm" placeholder="Confirm password">
                 </div>
-                <div class="form-check">
-                    <label>
-                        <input type="checkbox" name="agree">
-                        Agree to terms and conditions.
-                    </label>
-                </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </div>
-                <!--<div class="form-group">
-                    <label for="fname">First Name:</label>
-                    <input class="form-control" id="fname" name="fname" placeholder="Enter first name">
-                </div>
-                <div class="form-group">
-                    <label for="lname">Last Name:</label>
-                    <input class="form-control" id="lname" name="lname" placeholder="Enter last name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input class="form-control" id="email" name="email" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input class="form-control" id="pwd" name="pwd" placeholder="Enter password">
-                </div>
-                <div class="form-group">
-                    <label for="pwd_confirm">Confirm Password:</label>
-                    <input class="form-control" id="pwd_confirm" name="pwd_confirm" placeholder="Confirm password">
+                    <label for="telegram_id">Register Telegram Bot 2FA:</label>
+                    <input class="form-control" type="text" id="telegram_id" required name="telegram_id" placeholder="Telegram ID">
+
+                    <label for="telegram_check">Verify:</label>
+                    <button type="button">Verify</button>
+                    <?php
+                        if(array_key_exists('button1', $_POST)) {
+                            button1();
+                        }
+                        function button1() {
+                            echo "This is Button1 that is selected";
+                        }
+                    ?>
                 </div>
                 <div class="form-check">
                     <label>
@@ -84,9 +79,10 @@
                         Agree to terms and conditions.
                     </label>
                 </div>
+                <input type="hidden" name="register" value="true">
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit">Submit</button>
-                </div>-->
+                </div>
             </form>
         </main>
         <?php
