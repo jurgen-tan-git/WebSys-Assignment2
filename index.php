@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-    <title>World of Pets</title>    
+    <title>Bank Of SIT</title>    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"
@@ -17,70 +17,64 @@
         </script>
         <script defer src="js/main.js"></script>
     </head>
+    
     <body>
         <?php
             include "nav.inc.php";
         ?>
-        <header class="jumbotron text-center">
-            <h1 class="display-4">Welcome to World of Pets!</h1>
-            <h2>Home of Singapore's Pet Lovers</h2>
-        </header>
+        <img src="images/black.jpg"  width="500" height="110">
+        
         <main class="container">
-            <section id="dogs">
-                <h2>All About Dogs!</h2>
-                <div class="row">
-                    <article class="col-sm">
-                        <h3>Poodle</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/poodle_small.jpg" alt="Poodle" title="View larger image...">
-                            <figcaption>Standard Poodle</figcaption>
-                        </figure>
-                        <p>
-                            Poodles are a group of formal dog breeds, the Standard
-                            Poodle, Miniature Poodle and Toy Poodle.
-                        </p>
-                    </article>
-                    <article class="col-sm">
-                        <h3>Chihuahua</h3>
-                        <figure>
-                        <img class="img-thumbnail" src="images/chihuahua_small.jpg" alt="Chihuahua" title="View larger image...">
-                        <figcaption>Chihuahua</figcaption>
-                        </figure>
-                        <p>
-                        The Chihuahua is the smallest breed of dog, and is named
-                        after the Mexican state of Chihuahua.
-                        </p>
-                    </article>
+            <div class="top-container">
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="images/intro.jpg" style="width:100%">
+                        <div class="text">Bank today with BANK OF SIT</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="images/nomin.jpg" style="width:100%">
+                        <div class="text">The only reliable bank you need</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="images/interest.jpg" style="width:100%">
+                        <div class="text">Sky high interest</div>
+                    </div>
+
                 </div>
-            </section>  
-            <section id="cats">
-                <h2>All About Cats!</h2>
-                <div class="row">
-                    <article class="col-sm">
-                        <h3>Tabby</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/tabby_small.jpg" alt="Tabby" title="View larger image...">
-                            <figcaption>Standard Tabby</figcaption>
-                        </figure>
-                        <p>
-                        A tabby is any domestic cat with an 'M' on its forehead, stripes by its eyes and across its cheeks.
-                        </p>
-                    </article>
-                    <article class="col-sm">
-                        <h3>Calico</h3>
-                        <figure>
-                            <img class="img-thumbnail" src="images/calico_small.jpg" alt="Calico" title="View larger image...">
-                            <figcaption>Standard Calico</figcaption>
-                        </figure>
-                        <p>
-                        A calico is a domestic cat with a coat that is typically 25% to 75% white and has large orange and black patches.
-                        </p>
-                    </article>
+                <br>
+                <div class="SIT"></div>
+                <div style="text-align:center">
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
                 </div>
-            </section>
-        </main>
+                <img src="images/daily.jpg"  style="width:100%">
+                <center>
+                    <marquee  behavior="alternate" direction="left">          
+                        <img src="images/gold.jpg" width="40" height="25"
+                             alt="GeeksforGeeks logo"> 
+                    </marquee>  
+
+                    <marquee  behavior="alternate" direction="right">         
+                        <img src="images/logo.jpg" width="40" height="25"
+                             alt="GeeksforGeeks logo"> 
+                    </marquee>  
+                </center>
+                <img src="images/lockin.jpg"  style="width:100%">
+                <img src="images/ready.jpg"  style="width:100%">
+                <img src="images/end.jpg"  style="width:100%">
+            </div>
+                            <img src="images/black.jpg"  width="500" height="100">
+         <div>
         <?php
             include "footer.inc.php";
-        ?>
+        ?>       
+         </div>
     </body>
 </html>
