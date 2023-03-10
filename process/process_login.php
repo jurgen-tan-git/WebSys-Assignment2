@@ -34,7 +34,7 @@
                     //otp
                     $otp = rand(100000,999999);
                     //send otp
-                    $apiToken = "5954482111:AAGscQl3YDz5db9Ixzuu-OGFiGShXPBych4";
+                    $apiToken = "";
                     $message = "This is your OTP:". "\n" .$otp ;
                     $data = [
                     'chat_id' => '-1001888468634',
