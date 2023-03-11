@@ -38,7 +38,7 @@
             if ($_GET["register"] == "success") {
                 $register_msg = "Registration success! Please log-in.";
             } else if ($_GET["register"] == "exist") {
-                $register_msg = "You have an existing email! Please log-in.";
+                $register_msg = "You have an existing account! Please log-in.";
             } 
         }
         ?>

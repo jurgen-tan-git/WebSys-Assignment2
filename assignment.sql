@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2023 at 06:35 PM
+-- Generation Time: Mar 11, 2023 at 06:41 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,7 +43,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`member_id`, `fname`, `lname`, `email`, `tg_chat_id`, `password`, `otp`, `otp_timestamp_expired`) VALUES
-(135, 'Avin', 'Tech', 'rongk4ii@gmail.com', '282746527', '$2y$10$1K6FV7sYaukU/JOtNrfjwOTbJs7zW.kUoQTpdaS0olbTqrX2swuUa', '$2y$10$RCETP0Z8Jx6O/QF/TLRYeeuz0BcrZWpjiz45OOsjMic8atCHnPo8e', '2023-03-11 17:27:43'),
+(135, 'Avin', 'Tech', 'rongk4ii@gmail.com', '282746527', '$2y$10$1K6FV7sYaukU/JOtNrfjwOTbJs7zW.kUoQTpdaS0olbTqrX2swuUa', '$2y$10$kRdnIECRBYHp7UZHCGHdwOUl5n61i7gC/rljTRLGyL8uh/EC1Diqq', '2023-03-11 17:40:49'),
 (145, 'Avin', 'Tech', 'rongk4iii@gmail.com', '199638425', '$2y$10$PyAxnPUfJI6s/tGmQUKsfOwNDdXqPoh46HwKilVQ1xsIwRfMtKjEq', '$2y$10$EV1/7T6gl/Q0se3wEK/zauHvfF/NKqeH1dXqphvFQogtP58dU.cuu', '2023-03-11 16:51:07');
 
 --
@@ -56,7 +56,8 @@ INSERT INTO `account` (`member_id`, `fname`, `lname`, `email`, `tg_chat_id`, `pa
 ALTER TABLE `account`
   ADD PRIMARY KEY (`member_id`),
   ADD UNIQUE KEY `id_UNIQUE` (`member_id`),
-  ADD UNIQUE KEY `email_UNIQUE` (`email`);
+  ADD UNIQUE KEY `email_UNIQUE` (`email`),
+  ADD UNIQUE KEY `tg_chat_id` (`tg_chat_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -66,7 +67,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `member_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `member_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
