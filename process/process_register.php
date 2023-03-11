@@ -3,7 +3,7 @@
 
     $db = new Mysql_Driver();
 
-    $email = $fname = $lname = $pwd = $pwd_cfm = $pwd_hashed = $errorMsg = "";
+    $email = $fname = $lname = $pwd = $pwd_cfm = $pwd_hashed = $tg_chat_id = $errorMsg = "";
     $success = true;
     if (isset($_POST["register"])) {
         if (!empty($_POST["fname"]))
@@ -63,14 +63,26 @@
                 $success = false;
             }
         }
-        
+
+        if (!empty($_POST["tg_chat_id"]))
+        {
+            $tg_chat_id = sanitize_input($_POST["tg_chat_id"]);
+           // echo "chatid". $tg_chat_id ;
+            if($tg_chat_id == ""){
+                $errorMsg .= "Telegram ID cannot be empty.<br>";
+                $success = false;
+            }
+        }
+
         if ($success)
         {   
             $savetodb = saveMemberToDB();
-            //echo $savetodb;
-            if ($savetodb == false){
-                header("Location: ../login.php?register=success");
-            }else if($savetodb == "duplicate"){
+            echo "savetodb" . $savetodb;
+            if (is_bool($savetodb)){
+                if($savetodb == true){
+                    header("Location: ../login.php?register=success");
+                }
+            }else if(str_contains($savetodb,"duplicate")){
                 header("Location: ../login.php?register=exist");
             }else{
                 header("Location: ../register.php?error=invalid");
@@ -95,12 +107,12 @@
     */
     function saveMemberToDB()
     {
-        global $fname, $lname, $email, $pwd, $db;
+        global $fname, $lname, $email, $tg_chat_id, $pwd, $db;
         $result = true;
         try{
             $db->connect();
-            $qry = "INSERT INTO account (fname, lname,email, password) VALUES (?, ?, ?, ?)";
-            $result = $db->perform_query($qry,$fname, $lname, $email, $pwd);            
+            $qry = "INSERT INTO account (fname, lname,email,tg_chat_id, password) VALUES (?, ?,?, ?, ?)";
+            $result = $db->query($qry,$fname, $lname, $email, $tg_chat_id, $pwd);
         }catch (Exception $e) {
             echo $e;
         } finally {
