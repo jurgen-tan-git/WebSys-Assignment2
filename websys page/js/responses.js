@@ -1,9 +1,9 @@
 function getBotResponse(input) {
     //rock paper scissors
-    if (input == "What can you do") {
+    if (input == "what can you do") {
         return "I am a SIT chatbot, here to answer your question.";
-    } else if (input == "paper") {
-        return "scissors";
+    } else if (input == "where is bank of SIT" || input == "where is bank of sit") {
+        return "Bank of SIT is located at NYP";
     } else if (input == "scissors") {
         return "rock";
     }

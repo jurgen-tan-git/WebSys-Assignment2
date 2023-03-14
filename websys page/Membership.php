@@ -46,21 +46,8 @@
                     <span class="dot"></span> 
                     <span class="dot"></span> 
                 </div>
-                <img src="images/daily.jpg"  style="width:100%">
-                <center>
-                    <marquee  behavior="alternate" direction="left">          
-                        <img src="images/gold.jpg" width="40" height="25"
-                             alt="GeeksforGeeks logo"> 
-                    </marquee>  
-
-                    <marquee  behavior="alternate" direction="right">         
-                        <img src="images/logo.jpg" width="40" height="25"
-                             alt="GeeksforGeeks logo"> 
-                    </marquee>  
-                </center>
-                <img src="images/lockin.jpg"  style="width:100%">
-                <img src="images/ready.jpg"  style="width:100%">
-                <img src="images/end.jpg"  style="width:100%">
+                <img src="images/carddifferent.png"  style="width:100%">
+                
             </div>
                             <img src="images/black.jpg"  width="500" height="100">
          <div>

@@ -33,7 +33,7 @@
             <div class="top-container">
                 
                 <center>
-                <section id="dogs">
+                <section id="aboutus">
                     <h2>About Us</h2>
                     <div class="row">
                         <article class="col-sm" >
