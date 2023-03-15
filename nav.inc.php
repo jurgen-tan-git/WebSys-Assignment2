@@ -20,7 +20,7 @@ if(isset($_SESSION["fname"])) {
         <i class="fa fa-twitter fa-2x" aria-hidden="true"></i><!----><small></small></a>
       
       <a class="Button StreamsSignUp js-signup" href="index.php">Home 
-      <a class="Button StreamsLogin js-login"href='login.php'>Memberships</a>
+      <a class="Button StreamsLogin js-login"href='Membership.php'>Memberships</a>
       <a class="Button StreamsSignUp js-signup" href='register.php'>Services 
       <a class="Button StreamsLogin js-login"href='account.php'>Account Details</a>
       <a class="Button StreamsSignUp js-signup" href='Aboutus.php'>About Us</a>
