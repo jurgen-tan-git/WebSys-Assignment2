@@ -33,7 +33,7 @@ function getTime() {
 }
 
 function firstBotMessage() {
-    let firstMessage = "Hi";
+    let firstMessage = "Hi, how may I help you today?";
     document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
 
     let time = getTime();
@@ -56,7 +56,7 @@ function getResponse() {
     let userText = $("#textInput").val();
 
     if (userText == "") {
-        userText = "I love Code Palace!";
+        userText = "I am not sure what you can do";
     }
 
     let userHtml = '<p class="userText"><span>' + userText + '</span></p>';

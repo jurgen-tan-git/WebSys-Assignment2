@@ -15,7 +15,7 @@
 
 <body>
     <!-- CHAT BAR BLOCK -->
-    <div class="chat-bar-collapsible">
+    <div class="chat-bar-collapsible" style="z-index: 110">
         <button id="chat-button" type="button" class="collapsible">Chat with us!
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
         </button>
