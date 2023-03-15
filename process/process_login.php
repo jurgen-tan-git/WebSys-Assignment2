@@ -75,8 +75,9 @@
                         session_regenerate_id();
                         $_SESSION['loggedin'] = TRUE;
                         $_SESSION['email'] = $row['email'];
-                        $_SESSION['user_id'] = $row['id'];
+                        $_SESSION['user_id'] = $row['account_id'];
                         $_SESSION['fname'] = $row['fname'];
+                        $_SESSION['balance'] = $row['balance'];
                         header("Location: ../index.php");
                         exit;
                     }

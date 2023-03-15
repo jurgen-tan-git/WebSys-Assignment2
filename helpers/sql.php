@@ -49,14 +49,15 @@ class Mysql_Driver
 					}
 					$stringTypes .= $type;
 				}
-				if (sizeof($params)) {
+				if (sizeof($params)){
 					mysqli_stmt_bind_param($stmt, $stringTypes , ...$params);
 				}
 				if (!mysqli_stmt_execute($stmt)) {
 					trigger_error("Query Failed SQL: $qry - Stmt Error: " . htmlspecialchars($stmt->error));
 				}
 				if (mysqli_stmt_affected_rows($stmt) > 0) {
-					$result = true;
+					//$result = true;
+					$result = mysqli_stmt_insert_id($stmt);
 				} else {
 					$result = mysqli_stmt_get_result($stmt);
 				}
