@@ -41,7 +41,7 @@
             <form action="process/process_register.php" method="post" onsubmit="return checkValue()" validate>
                 <div class="form-group">
                     <label for="fname">First Name:</label>
-                    <input class="form-control" type="text" id="fname" maxlength="45" name="fname" placeholder="Enter first name">
+                    <input class="form-control" type="text" id="fname" required maxlength="45" name="fname" placeholder="Enter first name">
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name:</label>

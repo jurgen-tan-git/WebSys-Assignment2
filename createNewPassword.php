@@ -31,11 +31,11 @@
                 <form action="process/process_login.php" method="POST">
                     <div class="form-group">
                         <label for="passwordField"></label>
-                        <input type="password" class="form-control" id="passwordField" placeholder="Enter new password" name="password" >
+                        <input type="password" class="form-control" id="passwordField" required placeholder="Enter new password" name="password" >
                     </div>
                     <div class="form-group">
                         <label for="cfmPasswordField"></label>
-                        <input type="password" class="form-control" id="cfmPasswordField" placeholder="Confirm new password" name="cfmPassword" >
+                        <input type="password" class="form-control" id="cfmPasswordField" required placeholder="Confirm new password" name="cfmPassword" >
                     </div>
                     <input type="hidden" name="selector" value="<?php echo $selector ?>">
                     <input type="hidden" name="validator" value="<?php echo $validator ?>">

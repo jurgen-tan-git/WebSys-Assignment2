@@ -55,7 +55,7 @@
                         <?php echo $login_error ?>
                     </div>
                 <?php endif; ?>
-                <button class="btn btn-primary" id="btn-submit" onclick="validateOTP()" type="submit">Log In</button>
+                <button class="btn btn-primary" id="submit" onclick="validateOTP()" type="submit">Log In</button>
             </form>
         </main>
         <?php

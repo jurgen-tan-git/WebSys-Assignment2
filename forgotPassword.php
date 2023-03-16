@@ -39,7 +39,7 @@
                 <form action="<?php echo "process/process_login.php" ?>" method="POST">
                     <div class="form-group">
                     <label for="emailAddressField"></label>
-                        <input type="email" class="form-control" id="emailAddressField" placeholder="Email Address" name="email" value="<?php echo $email ?>" >
+                        <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
                     </div>
                     <input type="hidden" name="forgotPassword" value="true">
                     <?php if($success): ?>

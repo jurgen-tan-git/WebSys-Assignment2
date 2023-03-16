@@ -56,11 +56,11 @@
             <form action="process/process_login.php" method="POST">
                 <div class="form-group">
                     <label for="emailAddressField"></label>
-                    <input type="email" class="form-control" id="emailAddressField" placeholder="Email Address" name="email" value="<?php echo $email ?>" >
+                    <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
                 </div>
                 <div class="form-group">
                     <label for="passwordField"></label>
-                    <input type="password" class="form-control" id="passwordField" placeholder="Password" name="password" value="<?php echo $password ?>" >
+                    <input type="password" class="form-control" id="passwordField" required placeholder="Password" name="password" value="<?php echo $password ?>" >
                 </div>
                 <input type="hidden" name="authenticate" value="true">
                 <?php if($login_error): ?>
