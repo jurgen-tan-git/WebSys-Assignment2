@@ -2,7 +2,7 @@
 <html lang="en-us">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Pets</title>    
+        <title>World of Pets</title>    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet"
@@ -70,8 +70,8 @@
                 <?php endif; ?>
                 <button class="btn btn-primary" type="submit">Log In</button>
             </form>
+            <small><a href="forgotPassword.php" id="forgotPassword"><u>Forgot Password</u></a></small>
         </main>
-        <img src="images/black.jpg"  width="500" height="100">
         <?php
         include "footer.inc.php";
         ?>

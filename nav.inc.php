@@ -24,7 +24,7 @@ if (isset($_SESSION["fname"])) {
 </head>
 
 <body>
-	<<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 			<span class="navbar-toggler-icon"></span>

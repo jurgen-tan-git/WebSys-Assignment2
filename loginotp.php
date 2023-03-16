@@ -58,7 +58,6 @@
                 <button class="btn btn-primary" id="btn-submit" onclick="validateOTP()" type="submit">Log In</button>
             </form>
         </main>
-        <img src="images/black.jpg"  width="500" height="100">
         <?php
         include "footer.inc.php";
         ?>

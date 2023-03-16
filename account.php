@@ -67,7 +67,6 @@
     </table>
   </div>
   <div>
-    <img src="images/black.jpg"  width="500" height="100">
   </div>
   <?php
   include "footer.inc.php";

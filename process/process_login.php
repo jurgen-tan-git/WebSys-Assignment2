@@ -1,6 +1,7 @@
 <?php
     session_start();
-
+    
+    require_once __DIR__. '/../vendor/autoload.php';
     include_once '../helpers/sql.php';
     $db = new Mysql_Driver();
 
@@ -50,7 +51,8 @@
             header("Location: ../login.php?error=incorrect");
             exit;
         }
-    }if (isset($_POST["input-otp"])){        
+    }
+    if (isset($_POST["input-otp"])){        
         $input = $_POST["input-otp"];
         // check if email field
         if (empty($input)) {
@@ -86,8 +88,128 @@
             header("Location: ../loginotp.php?error=incorrect");
             exit;
         }
-    }else {
-        echo $_SESSION['email'];
     }
 
+    if (isset($_POST["forgotPassword"])) {
+        try {
+            $mail = new PHPMailer\PHPMailer\PHPMailer();
+            $selector = bin2hex(random_bytes(8));
+            $token = random_bytes(32);
+
+            $url = "/../createNewPassword.php?selector=" . $selector . "&validator=" . bin2hex($token);
+            
+            // Set expiry for tokens
+            $email = $_POST["email"];
+
+            $db->connect();
+            $qry = "DELETE FROM pwd_reset WHERE email=?";
+            $result = $db->query($qry, $email);
+            $qry = "INSERT INTO pwd_reset (email, reset_selector, reset_token, reset_expires) VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 30 MINUTE))";
+            $hashedToken = password_hash($token, PASSWORD_DEFAULT);
+            $result = $db->query($qry, $email, $selector, $hashedToken);
+            $db->close();
+            
+            // Prepare email
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
+            $mail->SMTPAuth = true;  // authentication enabled
+            $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
+            $mail->Host = 'smtp-mail.outlook.com';
+            $mail->Port = 587;
+            
+            $mail->Username = 'bosit.hello@outlook.com';
+            $mail->Password = 'inf1005test';
+            
+            $mail->setFrom('bosit.hello@outlook.com', 'Bank of SIT');
+            $mail->AddAddress($email); //to
+            //Message
+            $mail->isHTML();
+            $mail->Subject = 'Reset password for your Bank of SIT account.';
+            $message = "<p>The link to reset your password is at the bottom of this email.
+            If you did not make this request, please ignore this email</p>
+            <p><b>(This is auto-generated. Please do not reply to this email)</b></p>";
+            $message .= "<p> Here is your password reset link: </br>";
+            $message .= '<a href="' . $url . '">' . $url . '</a></p>';
+            $mail->Body = $message;
+
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message sent!';
+            }
+            $pageUrl = "../forgotPassword.php?reset=success";
+            header("Location: $pageUrl");
+        } catch (Exception $e) {
+            echo $e;
+            die($e->getMessage());
+        }
+    }
+    if (isset($_POST["createNewPassword"])) {
+        $selector = $_POST["selector"];
+        $validator = $_POST["validator"];
+        $password = $_POST["password"];
+        $cfmPassword = $_POST["cfmPassword"];
+
+        if (empty($password) || empty($cfmPassword)) {
+            $pageUrl = '../createNewPassword.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=empty";
+            header("Location: $pageUrl");
+            exit;
+        } else if ($password !== $cfmPassword) {
+            $pageUrl = '../createNewPassword.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=pwdnotsame";
+            header("Location: $pageUrl");
+            exit;
+        }
+
+        $db->connect();
+        $qry = "SELECT * FROM pwd_reset WHERE reset_selector= ? AND reset_expires >= NOW()";
+        $result = $db->query($qry, $selector);
+        
+        if ($db->num_rows($result) <= 0) {
+            echo "Please resubmit your password reset request.";
+            $pageUrl = '../createNewPassword.php' . '?reset=failed';
+            header("Location: $pageUrl");
+            exit; 
+        }
+
+        while ($row = $db->fetch_array($result)) {
+            $tokenBin = hex2bin($validator);
+            $tokenCheck = password_verify($tokenBin, $row["reset_token"]);
+
+            if (!$tokenCheck) {
+                // You need to resubmit your reset request
+                echo "You need to resubmit your reset request2";
+                $pageUrl = '../createNewPassword.php' . '?reset=failed2';
+                header("Location: $pageUrl");
+                exit; 
+            } else if ($tokenCheck) {
+
+                // Update the password
+                $tokenEmail = $row['email'];
+
+                $qry = "SELECT * FROM account WHERE email=?";
+
+                $accountResult = $db->query($qry, $tokenEmail);
+
+                if ($db->num_rows($accountResult) <= 0) {
+                    // You need to resubmit your reset request
+                    echo "You need to resubmit your reset request3";
+                    $pageUrl = '../createNewPassword.php' . '?reset=failed3';
+                    header("Location: $pageUrl");
+                    exit; 
+                } else {
+                    $qry = "UPDATE account SET password=? WHERE email=?";
+                    $db->query($qry, password_hash($password, PASSWORD_DEFAULT), $tokenEmail);
+    
+                    // Delete tokens after use
+                    $qry = "DELETE FROM pwd_reset WHERE email=?";
+                    $db->query($qry, $tokenEmail);
+                    $db->close();
+    
+                    $pageUrl = '../account.php' . "?pwdupdate=success";
+                    header("Location: $pageUrl");
+                    exit;
+                }
+            }
+        }
+    }
 ?>
