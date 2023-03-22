@@ -77,13 +77,13 @@ background-color: #000000;
 
 nav {
               font-size: 20px;
-    background-color: #ffffff;
-    /*
-      All of the base styles have
+    background-color: #000000;
+    
+/*      All of the base styles have
       moved to the “CSS” tab above.
-    */
+    
     transition: transform 250ms;
-    transform: translateY(-10px);
+    transform: translateY(-10px);*/
   }
 
 body {
