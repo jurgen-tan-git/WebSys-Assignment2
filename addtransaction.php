@@ -54,10 +54,11 @@
                 </div>
             </form>
         </main>
-        <img src="images/black.jpg"  width="500" height="100">
+        <div class="footer-margin">
         <?php
-        include "footer.inc.php";
-        ?>
+            include "footer.inc.php";
+        ?>       
+         </div>
     </body>
     <script>
         

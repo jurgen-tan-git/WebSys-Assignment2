@@ -23,6 +23,20 @@
             include "nav.inc.php";
         ?>
         <img src="images/black.jpg"  width="500" height="110">
+        <div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <<img src="images/card_face.jpg" alt="alt"/>
+        </div>
+        <div class="flip-card-back">
+            <div class="strip"></div>
+            <div class="mstrip"></div>
+            <div class="sstrip">
+              <p class="code">***</p>
+            </div>
+        </div>
+    </div>
+</div>
         
         <main class="container">
             <div class="top-container">
@@ -49,8 +63,7 @@
                 <img src="images/carddifferent.png"  style="width:100%">
                 
             </div>
-                            <img src="images/black.jpg"  width="500" height="100">
-         <div>
+         <div class="footer-margin">
         <?php
             include "footer.inc.php";
         ?>       

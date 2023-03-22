@@ -95,9 +95,11 @@
                    
                 </center>
               
-            <?php
+            <div class="footer-margin">
+        <?php
             include "footer.inc.php";
-            ?>       
+        ?>       
+         </div>     
          </div>
     </body>
 </html>

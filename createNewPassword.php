@@ -54,5 +54,9 @@
         <!-- img logo here -->
 
     </main>
-    <?php include "footer.inc.php" ?> 
+    <div class="footer-margin">
+        <?php
+            include "footer.inc.php";
+        ?>       
+         </div>
 </html>

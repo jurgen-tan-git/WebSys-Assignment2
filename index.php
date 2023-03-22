@@ -70,8 +70,7 @@
                 <img src="images/ready.jpg"  style="width:100%">
                 <img src="images/end.jpg"  style="width:100%">
             </div>
-                            <img src="images/black.jpg"  width="500" height="100">
-         <div>
+         <div class="footer-margin">
         <?php
             include "footer.inc.php";
         ?>       

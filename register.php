@@ -80,9 +80,11 @@
                 </div>
             </form>
         </main>
+        <div class="footer-margin">
         <?php
-        include "footer.inc.php";
-        ?>
+            include "footer.inc.php";
+        ?>       
+         </div>
     </body>
     <script>
         

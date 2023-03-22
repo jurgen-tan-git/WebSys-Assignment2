@@ -70,10 +70,11 @@
                 <?php endif; ?>
                 <button class="btn btn-primary" type="submit">Log In</button>
             </form>
-            <small><a href="forgotPassword.php" id="forgotPassword"><u>Forgot Password</u></a></small>
         </main>
+        <div class="footer-margin">
         <?php
-        include "footer.inc.php";
-        ?>
+            include "footer.inc.php";
+        ?>       
+         </div>
     </body>
 </html>
