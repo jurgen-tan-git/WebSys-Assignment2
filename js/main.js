@@ -104,8 +104,32 @@ function showSlides() {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
+
 /*
 * This function toggles the nav menu active/inactive status as
 * different pages are selected. It should be called from $(document).ready()
 * or whenever the page loads.
 */
+
+// This code is not necessary for the modal to work
+// It is just an example of how to change the modal content dynamically
+// if you want to use it, put it in your main.js file
+
+// Get the modal element
+var checkingModal = document.getElementById('checkingModal');
+
+// When the modal is shown, change the content dynamically
+checkingModal.addEventListener('shown.bs.modal', function (event) {
+  // Get the button that triggered the modal
+  var button = event.relatedTarget;
+
+  // Get the card title and text
+  var title = button.closest('.card').querySelector('.card-title').textContent;
+  var text = button.closest('.card').querySelector('.card-text').textContent;
+
+  // Update the modal title and body with the card title and text
+  checkingModal.querySelector('.modal-title').textContent = title;
+  checkingModal.querySelector('.modal-body p').textContent = text;
+});
+
+
