@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 15, 2023 at 02:13 PM
+-- Generation Time: Mar 24, 2023 at 09:46 AM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -44,8 +44,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`account_id`, `fname`, `lname`, `balance`, `email`, `tg_chat_id`, `password`, `otp`, `otp_timestamp_expired`) VALUES
-(135, 'Avin', 'Tech', '-23071.00', 'rongk4ii@gmail.com', '282746527', '$2y$10$1K6FV7sYaukU/JOtNrfjwOTbJs7zW.kUoQTpdaS0olbTqrX2swuUa', '$2y$10$5a0I0pZJ95vV83.KX87g0O/a/FwAp0VmS/pc6GQ8UUpex0TNZdnZm', '2023-03-15 13:53:54'),
-(145, 'Avin', 'Tech', '0.00', 'rongk4iii@gmail.com', '199638425', '$2y$10$PyAxnPUfJI6s/tGmQUKsfOwNDdXqPoh46HwKilVQ1xsIwRfMtKjEq', '$2y$10$EV1/7T6gl/Q0se3wEK/zauHvfF/NKqeH1dXqphvFQogtP58dU.cuu', '2023-03-11 16:51:07');
+(151, 'avin', 'tech', '-1.00', 'rongk4ii@gmail.com', '282746527', '$2y$10$RltdtjtVuSm3lKeYecMdkeTlUQ8EtwsK/EVTTRvQ9QbGvndY4pMM.', '$2y$10$GQiAMHypkGFQY2WldXBxTuMyTujTN0gusl3Y9/YYAAHZ1JuPv2Z/.', '2023-03-24 09:45:16');
 
 -- --------------------------------------------------------
 
@@ -63,11 +62,21 @@ CREATE TABLE `account_transaction` (
 --
 
 INSERT INTO `account_transaction` (`account_id`, `transaction_id`) VALUES
-(135, 4),
-(135, 5),
-(135, 6),
-(135, 7),
-(135, 8);
+(151, 14),
+(151, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pwd_reset`
+--
+
+CREATE TABLE `pwd_reset` (
+  `email` varchar(45) NOT NULL,
+  `reset_selector` varchar(255) NOT NULL,
+  `reset_token` varchar(255) NOT NULL,
+  `reset_expires` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -88,11 +97,8 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `type`, `amount`, `balance`, `timestamp`) VALUES
-(4, 1, '2.00', '125.00', '2023-03-15 13:53:11'),
-(5, 1, '34.00', '159.00', '2023-03-15 13:53:23'),
-(6, 1, '1.00', '160.00', '2023-03-15 13:56:28'),
-(7, 1, '1.00', '161.00', '2023-03-15 13:56:35'),
-(8, 2, '23232.00', '-23071.00', '2023-03-15 13:59:25');
+(14, 1, '1.00', '1.00', '2023-03-24 09:15:59'),
+(15, 2, '2.00', '-1.00', '2023-03-24 09:23:57');
 
 --
 -- Indexes for dumped tables
@@ -115,6 +121,13 @@ ALTER TABLE `account_transaction`
   ADD KEY `fk_transaction_account` (`transaction_id`);
 
 --
+-- Indexes for table `pwd_reset`
+--
+ALTER TABLE `pwd_reset`
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
@@ -129,13 +142,13 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `account_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `transaction_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
