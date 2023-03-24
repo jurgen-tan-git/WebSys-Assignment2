@@ -73,7 +73,7 @@
                             <img src="images/black.jpg"  width="500" height="100">
          <div>
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
     </body>

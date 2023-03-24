@@ -12,12 +12,26 @@
 
 <body>
         <?php
-            include "nav.inc.php";
+            include "subview/nav.inc.php";
             include_once 'helpers/sql.php';
             $db = new Mysql_Driver();
-            if (!isset($_SESSION['email'])|!isset($_SESSION['user_id'])) {   
+            if (!isset($_SESSION['email'])|!isset($_SESSION['user_id'])|!isset($_SESSION['telegram_id'])|!isset($_SESSION['fname'])) {
+              session_destroy();   
               header("Location: login.php");
               exit;
+            }
+
+            //get balance
+            $db->connect();
+            $qry = "SELECT * FROM Account WHERE email = ?";
+            $result = $db->query($qry, $_SESSION['email']);
+            $db->close();
+            if ($db->num_rows($result) > 0) {
+                $row = $db->fetch_array($result);
+                $balance = $row['balance'];
+            }else{
+              session_destroy();   
+              header("Location: login.php");
             }
             ?>
         <img src="images/black.jpg"  width="500" height="110">
@@ -48,11 +62,16 @@
                   $type = "Withdrawal";
                   $class = "danger";
                 }
+                if ($row['balance'] > 0){
+                  $balance_class = "success";
+                }else{
+                  $balance_class = "danger";
+                }
                 echo "<tr>".
                         "<td>".date("j F Y g:i A",strtotime($row['timestamp']))."</td>".
                         "<td>".$type."</td>".
                         "<td class='text-".$class."'>".number_format($row['amount'],2)." SGD</td>".
-                        "<td class='text-success'>".number_format($row['balance'],2)." SGD</td>".
+                        "<td class='text-".$balance_class."'>".number_format($row['balance'],2)." SGD</td>".
                       "</tr>";
               }
             }
@@ -61,7 +80,7 @@
       <tfoot>
         <tr>
           <th scope="row" colspan="3">Current Balance:</th>
-          <td class="text-success"><?php echo number_format($_SESSION['balance'],2) ?> SGD</td>
+          <td class='text-<?php echo $balance >0 ? "success" : "danger" ?>'><?php echo number_format($balance,2) ?> SGD</td>
         </tr>
       </tfoot>
     </table>
@@ -70,7 +89,7 @@
   </div>
   <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
 </body>

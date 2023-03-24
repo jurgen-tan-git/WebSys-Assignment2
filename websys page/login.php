@@ -44,7 +44,7 @@
         </main>
         <img src="images/black.jpg"  width="500" height="100">
         <?php
-        include "footer.inc.php";
+        include "subview/footer.inc.php";
         ?>
     </body>
 </html>

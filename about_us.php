@@ -18,13 +18,13 @@
         <script defer src="js/main.js"></script>
     </head>
     <?php
-        include "chatbot1.php";
+        include "chatbot.php";
         ?>
     
     <body>
         
         <?php
-            include "nav.inc.php";
+            include "subview/nav.inc.php";
         ?>
         
         <img src="images/black.jpg"  width="500" height="110">
@@ -97,7 +97,7 @@
               
             <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>     
          </div>

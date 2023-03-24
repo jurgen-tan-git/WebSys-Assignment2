@@ -23,8 +23,8 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "nav.inc.php" ?>
-    <main class="login-container">
+    <?php include "subview/nav.inc.php" ?>
+    <main class="container">
         <div class="login">
             <?php if($validReq): ?>
                 <h1>Create New Password</h1>
@@ -48,7 +48,7 @@
                 <div id="loginErrorMessage" class="alert alert-danger" role="alert">
                     <?php echo $errorMessage ?>
                 </div>
-                <small><a href="index.php" id="backBtn"><u>Back to Login</u></a></small>
+                <a href="login.php">Back to Login</a>
             <?php endif; ?>
         </div>
         <!-- img logo here -->
@@ -56,7 +56,7 @@
     </main>
     <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
 </html>

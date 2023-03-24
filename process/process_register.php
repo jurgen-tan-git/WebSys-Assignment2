@@ -77,11 +77,8 @@
         if ($success)
         {   
             $savetodb = saveMemberToDB();
-            echo "savetodb" . $savetodb;
-            if (is_bool($savetodb)){
-                if($savetodb == true){
-                    header("Location: ../login.php?register=success");
-                }
+            if (is_int($savetodb)){
+                header("Location: ../login.php?register=success");
             }else if(str_contains($savetodb,"duplicate")){
                 header("Location: ../login.php?register=exist");
             }else{

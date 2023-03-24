@@ -20,7 +20,7 @@
     </head>
     <body>
         <?php
-        include "nav.inc.php";
+        include "subview/nav.inc.php";
         $login_error = "";
         $register_msg = "";
         $success_reset = "";
@@ -41,6 +41,12 @@
                 $register_msg = "You have an existing account! Please log-in.";
             } 
         }
+        if (isset($_GET["deregister"])) {
+            if ($_GET["deregister"] == "success") {
+                $register_msg = "Account deleted.";
+            }
+        }
+        
         ?>
         <main class="container">
             <?php if($register_msg): ?>
@@ -55,11 +61,11 @@
             </p>
             <form action="process/process_login.php" method="POST">
                 <div class="form-group">
-                    <label for="emailAddressField"></label>
+                    <label for="emailAddressField">Email Address:</label>
                     <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
                 </div>
                 <div class="form-group">
-                    <label for="passwordField"></label>
+                    <label for="passwordField">Password:</label>
                     <input type="password" class="form-control" id="passwordField" required placeholder="Password" name="password" value="<?php echo $password ?>" >
                 </div>
                 <input type="hidden" name="authenticate" value="true">
@@ -69,11 +75,12 @@
                     </div>
                 <?php endif; ?>
                 <button class="btn btn-primary" type="submit">Log In</button>
-            </form>
+            </form></br>
+            <a href="forgot_password.php">Forgot Password</a>
         </main>
         <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
     </body>

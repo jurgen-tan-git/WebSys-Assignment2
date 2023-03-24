@@ -8,8 +8,26 @@ $content1 = "Welcome Guest<br />";
 
 if (isset($_SESSION["fname"])) {
 	$content1 = "Welcome <b>$_SESSION[fname]</b>";
-	$content2 = "<a class='Button StreamsSignUp js-signup'>" . $_SESSION["fname"] . "</a>
-  <a class='Button StreamsLogin js-login' href='process/process_logout.php'>Log Out</a>";
+	$content2 = "<li class='nav-item'>
+					<a class='nav-link' href='account.php'>Account Details</a>
+				</li>
+				<li class='nav-item'>
+					<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
+				</li>
+				<li class='nav-item'>
+					<a class='nav-link' href='close_account.php'>Close Account</a>
+				</li>
+				<a class='nav-link'>".$_SESSION['fname']."</a>
+				<li class='nav-item'>
+					<a class='nav-link' href='process/process_logout.php'>Logout</a>
+				</li>";
+}else{
+	$content2 = "<li class='nav-item'>
+					<a class='nav-link' href='register.php'>Sign Up</a>
+				</li>
+				<li class='nav-item'>
+					<a class='nav-link' href='login.php'>Log In</a>
+				</li>";
 }
 ?>
 
@@ -24,9 +42,8 @@ if (isset($_SESSION["fname"])) {
 </head>
 
 <body>
-    
 	<nav class="navbar navbar-expand-lg navbar-dark">
-		<a class="navbar-brand" href="#"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
+		<a class="navbar-brand" href="index.php"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -38,23 +55,17 @@ if (isset($_SESSION["fname"])) {
 					<a class="nav-link" href="index.php">Home</a>
 				</li>
 				<li class="nav-item">
-                                    <a class="nav-link" href="Membership.php">Memberships</a>
+					<a class="nav-link" href="membership.php">Memberships</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="Membership.php">Services</a>
+					<a class="nav-link" href="services.php">Services</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="account.php">Account Details</a>
+					<a class="nav-link" href="about_us.php">About Us</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="Aboutus.php">About Us</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="register.php">Sign Up</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="login.php">Login</a>
-				</li>
+
+				<!--if log in-->			
+				<?php echo $content2;?>
 			</ul>
 		</div>
 		</nav>

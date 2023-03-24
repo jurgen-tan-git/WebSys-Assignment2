@@ -27,7 +27,6 @@
                 $chat_id = $row["tg_chat_id"];
                 if (password_verify($password, $row["password"])) {
                     $_SESSION['email'] = $email;
-
                     //otp
                     $otp = rand(100000,999999);
                     //send otp
@@ -44,7 +43,7 @@
                     $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE email=?";
                     $result = $db->query($qry,password_hash($otp,PASSWORD_DEFAULT),$email);
                     $db->close();
-                    header("Location: ../loginotp.php");
+                    header("Location: ../login_otp.php");
                     exit;
                 }
             }
@@ -52,6 +51,7 @@
             exit;
         }
     }
+
     if (isset($_POST["input-otp"])){        
         $input = $_POST["input-otp"];
         // check if email field
@@ -77,6 +77,7 @@
                         session_regenerate_id();
                         $_SESSION['loggedin'] = TRUE;
                         $_SESSION['email'] = $row['email'];
+                        $_SESSION['telegram_id'] = $row['tg_chat_id'];
                         $_SESSION['user_id'] = $row['account_id'];
                         $_SESSION['fname'] = $row['fname'];
                         $_SESSION['balance'] = $row['balance'];
@@ -85,7 +86,7 @@
                     }
                 }
             }
-            header("Location: ../loginotp.php?error=incorrect");
+            header("Location: ../login_otp.php?error=incorrect");
             exit;
         }
     }
@@ -137,7 +138,7 @@
             } else {
                 echo 'Message sent!';
             }
-            $pageUrl = "../forgotPassword.php?reset=success";
+            $pageUrl = "../forgot_password.php?reset=success";
             header("Location: $pageUrl");
         } catch (Exception $e) {
             echo $e;
@@ -151,11 +152,11 @@
         $cfmPassword = $_POST["cfmPassword"];
 
         if (empty($password) || empty($cfmPassword)) {
-            $pageUrl = '../createNewPassword.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=empty";
+            $pageUrl = '../create_password.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=empty";
             header("Location: $pageUrl");
             exit;
         } else if ($password !== $cfmPassword) {
-            $pageUrl = '../createNewPassword.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=pwdnotsame";
+            $pageUrl = '../create_password.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=pwdnotsame";
             header("Location: $pageUrl");
             exit;
         }
@@ -166,7 +167,7 @@
         
         if ($db->num_rows($result) <= 0) {
             echo "Please resubmit your password reset request.";
-            $pageUrl = '../createNewPassword.php' . '?reset=failed';
+            $pageUrl = '../create_password.php' . '?reset=failed';
             header("Location: $pageUrl");
             exit; 
         }
@@ -178,7 +179,7 @@
             if (!$tokenCheck) {
                 // You need to resubmit your reset request
                 echo "You need to resubmit your reset request2";
-                $pageUrl = '../createNewPassword.php' . '?reset=failed2';
+                $pageUrl = '../create_password.php' . '?reset=failed2';
                 header("Location: $pageUrl");
                 exit; 
             } else if ($tokenCheck) {
@@ -193,7 +194,7 @@
                 if ($db->num_rows($accountResult) <= 0) {
                     // You need to resubmit your reset request
                     echo "You need to resubmit your reset request3";
-                    $pageUrl = '../createNewPassword.php' . '?reset=failed3';
+                    $pageUrl = '../create_password.php' . '?reset=failed3';
                     header("Location: $pageUrl");
                     exit; 
                 } else {

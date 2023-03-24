@@ -21,7 +21,7 @@
     </head>
     <body>
         <?php
-            include "nav.inc.php";
+            include "subview/nav.inc.php";
             if (!isset($_SESSION['email'])){
                 session_destroy();
                 header("Location: login.php");
@@ -60,7 +60,7 @@
         </main>
        <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
     </body>

@@ -20,9 +20,14 @@
     </head>
     <body>
         <?php
-            include "nav.inc.php";
+            include "subview/nav.inc.php";
             $verify_bot = "Verify";
             $register_error = "";
+            if (!isset($_SESSION['email'])|!isset($_SESSION['user_id'])|!isset($_SESSION['telegram_id'])|!isset($_SESSION['fname'])) {
+                session_destroy();   
+                header("Location: login.php");
+                exit;
+            }
             if (isset($_GET["error"])) {
                 $register_error = "Sorry, it seems that something went wrong </b>. Please try again.";
             }
@@ -56,7 +61,7 @@
         </main>
         <div class="footer-margin">
         <?php
-            include "footer.inc.php";
+            include "subview/footer.inc.php";
         ?>       
          </div>
     </body>
