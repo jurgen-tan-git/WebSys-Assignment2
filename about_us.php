@@ -34,13 +34,22 @@
                 
                 <center>
                 <section id="aboutus">
-                    <h2>About Us</h2>
+                    <h2>
+                        <img src="images/Aboutustitle.png" alt="alt">
+                    </h2>
                     <div class="row">
                         <article class="col-sm" >
                             <h3>Who we are</h3>
                             <p>
                                 We are the first ever bank from Singapore. 
-                                The bank was founded in 2018, something
+                                We are dedicated to provide convenient banking
+                                solution for our customers. In the world today
+                                people has prefer manage their finances and transactions
+                                online without visiting a physical bank.
+                                
+                                Our website is designed to provided a user-friendly experience
+                                for our customers, with easy-to-use features that allow
+                                them to manage their finances online from anywhere.
                                 We are based on NYP@SIT.
                             </p>
                         </article>
