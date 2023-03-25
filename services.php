@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
   </head>
-  <body> <?php
+  <body> 
+    <?php
             include "subview/nav.inc.php";
         ?> 
          <div class="bg-1">
