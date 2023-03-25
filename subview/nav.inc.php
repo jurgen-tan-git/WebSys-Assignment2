@@ -125,7 +125,7 @@ session_start();
 									</div>
 								</div>
 								<div class="modal-footer d-flex justify-content-center">
-									<div class="signup-section"><a href="register_temp.php" class="text-info"> Sign
+									<div class="signup-section"><a href="register.php" class="text-info"> Sign
 											Up</a>.
 									</div>
 								</div>
