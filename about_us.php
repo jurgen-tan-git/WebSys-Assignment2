@@ -68,29 +68,29 @@
                         <h2 class="h4 text-white mb-5" >Contact us</h2>
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <label class="text-black" for="fname"> First Name</label>
-                                    <input type="text" name="name" id="fname" class="form-control">
+                                    <label class="text-black" for="fname"></label>
+                                    <input type="text" name="name" id="fname" class="form-control" placeholder="First Name">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="text-black" for="lname">Last Name</label>
-                                    <input type="text" id="lname" class="form-control">
+                                    <label class="text-black" for="lname"></label>
+                                    <input type="text" id="lname" class="form-control" placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="row form-group">
                              <div class="col-md-12">
-                                 <label class="text-black" for="email"> Email</label>
-                                 <input type="email" name="mail" id="email" class="form-control">
+                                 <label class="text-black" for="email"></label>
+                                 <input type="email" name="mail" id="email" class="form-control" placeholder="Email">
                              </div>
                          </div>
                          <div class="row form-group">
                              <div class="col-md-12">
-                                 <label class="text-black" for="subject"> Subject</label>
-                                 <input type="subject" name="subject" id="subject" class="form-control">
+                                 <label class="text-black" for="subject"></label>
+                                 <input type="subject" name="subject" id="subject" class="form-control" placeholder="Subject">
                              </div>
                          </div>
                          <div class="row form-group">
                              <div class="col-md-12">
-                                 <label class="text-black" for="message">Message</label>
+                                 <label class="text-black" for="message"></label>
                                  <textarea name="message" id="message" cols="30" 
                                            rows="7" class="form-control" placeholder="Write your question here..."></textarea>
                              </div>
