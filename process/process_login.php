@@ -130,16 +130,18 @@
             If you did not make this request, please ignore this email</p>
             <p><b>(This is auto-generated. Please do not reply to this email)</b></p>";
             $message .= "<p> Here is your password reset link: </br>";
-            $message .= '<a href="' . $url . '">' . $url . '</a></p>';
+            $message .= '<a href="' .$_SERVER['SERVER_NAME']."/". $url . '">' .$_SERVER['SERVER_NAME']."/". $url . '</a></p>';
             $mail->Body = $message;
 
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
+                $pageUrl = "../forgot_password.php?reset=fail";
             } else {
                 echo 'Message sent!';
+                $pageUrl = "../forgot_password.php?reset=success";
             }
-            $pageUrl = "../forgot_password.php?reset=success";
             header("Location: $pageUrl");
+            exit();
         } catch (Exception $e) {
             echo $e;
             die($e->getMessage());

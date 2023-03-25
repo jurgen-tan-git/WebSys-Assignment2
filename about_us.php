@@ -64,7 +64,7 @@
                         </article>
                     </div>
                 </section>
-                    <form class="contact-form" action="contactform.php" method="post">
+                    <form class="contact-form" action="process/process_contact.php" method="post">
                         <h2 class="h4 text-white mb-5" >Contact us</h2>
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3 mb-md-0">
@@ -95,13 +95,12 @@
                                            rows="7" class="form-control" placeholder="Write your question here..."></textarea>
                              </div>
                          </div>
-                         <div class="row form-group" >
+                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input type="submit" name="message"value="Send Message" class="btn btn-primary btn-md text-white">
-
+                                <input type="submit" name="submit" value="Send Message" class="btn btn-primary btn-md text-white">
                             </div>
-                          </div>
-                        </form>
+                        </div>
+                    </form>
                     <img src="images/black.jpg"  width="500" height="100">
                    
                 </center>
