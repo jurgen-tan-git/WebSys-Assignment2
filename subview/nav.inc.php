@@ -1,34 +1,5 @@
 <?php
 session_start();
-//Display guest welcome message, Login and Registration links
-//when shopper has yet to login,
-$content1 = "Welcome Guest<br />";
-// $content2 = "<a class='Button StreamsSignUp js-signup' href='register.php'>Sign Up</a>
-// <a class='Button StreamsLogin js-login' href='login.php'>Log In </a>";
-
-if (isset($_SESSION["fname"])) {
-	$content1 = "Welcome <b>$_SESSION[fname]</b>";
-	$content2 = "<li class='nav-item'>
-					<a class='nav-link' href='account.php'>Account Details</a>
-				</li>
-				<li class='nav-item'>
-					<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
-				</li>
-				<li class='nav-item'>
-					<a class='nav-link' href='close_account.php'>Close Account</a>
-				</li>
-				<a class='nav-link'>" . $_SESSION['fname'] . "</a>
-				<li class='nav-item'>
-					<a class='nav-link' href='process/process_logout.php'>Logout</a>
-				</li>";
-} else {
-	$content2 = "<li class='nav-item'>
-					<a class='nav-link' href='register.php'>Sign Up</a>
-				</li>
-				<li class='nav-item'>
-					<a class='nav-link' href='login.php'>Log In</a>
-				</li>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -43,13 +14,11 @@ if (isset($_SESSION["fname"])) {
 	<!-- Font Awesome CSS -->
 	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
 	<link rel="stylesheet" href="css/nav.css">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<!-- jQuery -->
 	<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
-	<!-- Popper JS -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
 	<!-- Bootstrap JS -->
 	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 	<script src="js/main.js"></script>
@@ -117,7 +86,7 @@ if (isset($_SESSION["fname"])) {
 					</li>
 
 					<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						aria-labelledby="loginModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header border-bottom-0">
@@ -149,14 +118,14 @@ if (isset($_SESSION["fname"])) {
 													</div>
 												<?php endif; ?>
 											</div>
-											<button type="button"
+											<button type="submit"
 												class="btn btn-info btn-block btn-round">Login</button>
 										</form>
 										<a href="forgot_password.php">Forgot Password</a>
 									</div>
 								</div>
 								<div class="modal-footer d-flex justify-content-center">
-									<div class="signup-section"><a href="register.php" class="text-info"> Sign
+									<div class="signup-section"><a href="register_temp.php" class="text-info"> Sign
 											Up</a>.
 									</div>
 								</div>
