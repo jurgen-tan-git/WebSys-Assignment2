@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
+    <script src="converter.js"></script>
   </head>
   <body> <?php
             include "subview/nav.inc.php";
@@ -252,23 +253,5 @@
 </div>
  <?php include "subview/footer.inc.php"; ?>
     </main>
-<script>
-function convert() {
-  const amount = document.getElementById('amount').value;
-  const from = document.getElementById('from').value;
-  const to = document.getElementById('to').value;
-  const url = `https://openexchangerates.org/api/latest.json?app_id=634728f310db4b40b108e5d2749b393f`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const rate = data.rates[to] / data.rates[from];
-      const result = (amount * rate).toFixed(2);
-      document.getElementById('result').value = result;
-    });
-}
-</script>
-
-
-
   </body>
 </html>
