@@ -10,7 +10,7 @@
         integrity=
         "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/register.css">
         <script defer
                 src="https://code.jquery.com/jquery-3.4.1.min.js"
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -48,40 +48,54 @@
         }
         
         ?>
-        <main class="container">
-            <?php if($register_msg): ?>
+<main class = "container">
+<?php if($register_msg): ?>
                 <div id="registerSuccessMessage" class="alert" role="alert">
                     <?php echo $register_msg ?>
                 </div>
             <?php endif; ?>
-            <h1>Member Log In</h1>
+<div class="signup-form">
+    <form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">
+		<div class="col-xs-8 col-xs-offset-4">
+			<h2>Member Log In</h2>
             <p>
                 Do not have an account? please go to the
                 <a href="register.php">Sign Up page</a>.
             </p>
-            <form action="process/process_login.php" method="POST">
-                <div class="form-group">
-                    <label for="emailAddressField">Email Address:</label>
-                    <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
-                </div>
-                <div class="form-group">
-                    <label for="passwordField">Password:</label>
-                    <input type="password" class="form-control" id="passwordField" required placeholder="Password" name="password" value="<?php echo $password ?>" >
-                </div>
-                <input type="hidden" name="authenticate" value="true">
-                <?php if($login_error): ?>
+		</div>
+        <form action="process/process_login.php" method="POST">		
+        <div class="form-group">
+			<label class="control-label col-xs-4" for="emailAddressField">Email Address:</label>
+            <div class="col-xs-8">
+            <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
+            </div>        	
+        </div>
+		<div class="form-group">
+			<label class="control-label col-xs-4" for="passwordField">Password:</label>
+			<div class="col-xs-8">
+            <input type="password" class="form-control" id="passwordField" required placeholder="Password" name="password" value="<?php echo $password ?>" >
+            </div>        	
+        </div>    
+        <input type="hidden" name="authenticate" value="true">
+        <?php if($login_error): ?>
                     <div id="loginErrorMessage" class="alert alert-danger" role="alert">
                         <?php echo $login_error ?>
                     </div>
-                <?php endif; ?>
-                <button class="btn btn-primary" type="submit">Log In</button>
-            </form></br>
+                <?php endif; ?>	 
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Log In</button>   
+        </div> 
+        <div class="text-center">
             <a href="forgot_password.php">Forgot Password</a>
-        </main>
-        <div class="footer-margin">
-        <?php
+        </div>        
+    </form>
+	
+</div>
+</main>
+<div class="footer-margin">
+<?php
             include "subview/footer.inc.php";
-        ?>       
-         </div>
-    </body>
+        ?>   
+</div>
+</body>
 </html>

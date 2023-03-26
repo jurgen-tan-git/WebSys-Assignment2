@@ -10,8 +10,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <link rel="stylesheet" href="css/register.css">
-	
-</style>
 </head>
 <body>
 <?php
@@ -35,7 +33,7 @@
 			<h2>Member Registration</h2>
             <p>
                 For existing members, please go to the
-                <a href="login.php">Sign In page</a>.
+                <a href="login_temp.php">Sign In page</a>.
             </p>
 		</div>
         <form action="process/process_register.php" method="post" onsubmit="return checkValue()" validate>
@@ -90,12 +88,11 @@
 				<p><label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>.</label></p>
 				<button class="btn btn-primary" type="submit" onclick="checkInput()">Submit</button>
 			</div>  
-		</div>		      
-        <div class="text-center">Already have an account? <a id="login" data-toggle="modal" data-target="#loginModal">Login here</a></div>
-        
+		</div>		              
     </form>
 	
 </div>
+</main>
 <div class="footer-margin">
 <?php
             include "subview/footer.inc.php";
