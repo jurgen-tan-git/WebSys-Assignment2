@@ -118,7 +118,7 @@
                 <p class="card-text">We offer a range of financial services to help small businesses grow and succeed, including loans, checking accounts, and more.</p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#small-business-services-modal">Learn More</a>
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#small-business-modal">Learn More</a>
               </div>
             </div>
           </div>
@@ -127,25 +127,25 @@
       </div>
       </section>
       <!-- Modal for Checking Accounts -->
-<div class="modal fade" id="checking-modal" tabindex="-1" role="dialog" aria-labelledby="checking-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="checking-modal-label">Checking Accounts</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal fade" id="checking-modal" tabindex="-1" role="dialog" aria-labelledby="checking-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="checking-modal-label">Checking Accounts</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Open a checking account with us and enjoy easy access to your funds with low fees and competitive interest rates.</p>
+              <p>Our checking accounts also come with free online banking and mobile app access, so you can manage your money on-the-go.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>Open a checking account with us and enjoy easy access to your funds with low fees and competitive interest rates.</p>
-        <p>Our checking accounts also come with free online banking and mobile app access, so you can manage your money on-the-go.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
       <!-- Modal for Savings Accounts -->
       <div class="modal fade" id="savings-modal" tabindex="-1" role="dialog" aria-labelledby="savings-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -203,25 +203,72 @@
           </div>
         </div>
       </div>
-      <!-- Modal for Small Business Services -->
-      <div class="modal fade" id="small-business-modal" tabindex="-1" role="dialog" aria-labelledby="small-business-modal-label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="small-business-modal-label">Small Business Services</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Our small business services include checking accounts, savings accounts, and credit cards tailored to meet the needs of small business owners. Enjoy competitive rates and fees, and take advantage of our online banking tools to help manage your finances.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+<!-- Modal for Small Business Services -->
+<div class="modal fade" id="small-business-modal" tabindex="-1" role="dialog" aria-labelledby="small-business-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="small-business-modal-label">Small Business Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
           </div>
-        </div>
-      </div> <?php include "subview/footer.inc.php"; ?>
+          <div class="form-group">
+            <label for="from">From currency:</label>
+            <select class="form-control" id="from">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="to">To currency:</label>
+            <select class="form-control" id="to">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="result">Result:</label>
+            <input type="text" class="form-control" id="result" disabled>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="convert()">Convert</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <?php include "subview/footer.inc.php"; ?>
     </main>
+<script>
+function convert() {
+  const amount = document.getElementById('amount').value;
+  const from = document.getElementById('from').value;
+  const to = document.getElementById('to').value;
+  const url = `https://openexchangerates.org/api/latest.json?app_id=634728f310db4b40b108e5d2749b393f`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const rate = data.rates[to] / data.rates[from];
+      const result = (amount * rate).toFixed(2);
+      document.getElementById('result').value = result;
+    });
+}
+</script>
+
+
+
   </body>
 </html>

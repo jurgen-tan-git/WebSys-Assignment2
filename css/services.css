@@ -7,6 +7,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Author     : avintech
 */
 
+    .card,
+    .card-text,
+    .card-title,
+    .card-footer,
+    .col-lg-4,
+    h2 {
+      font-family: initial;
+    }
 
 .card {
   background-color: #f8f9fa;
@@ -26,9 +34,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     padding:0;
     box-sizing: border-box;
 }*/
-body{
-    font-family: 'Poppins', sans-serif;
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 
 .bg-1{
   background-image: url("/images/s4.jpg");
@@ -143,6 +152,7 @@ h2 {
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
+
 .modal-backdrop.show {
   opacity: 1 !important;
 }
