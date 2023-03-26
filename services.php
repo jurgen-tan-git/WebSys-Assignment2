@@ -7,50 +7,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="css/main.css">
-
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
   </head>
-  <body> 
-    <?php
+  <body> <?php
             include "subview/nav.inc.php";
-        ?> 
-         <div class="bg-1">
-     <h1>Put your dollar to work.</h1>
-   </div>
-   <div class="bg-2">
-    <h1>Get rewarded.</h1>
-  </div>
-  <div class="bg-3">
-    <h1>Smooth transfers.</h1>
-  </div>
-  <div class="bg-4">
-    <h1>Top-class customer service.</h1>
-  </div>
-  <div class="bg-5">
-    <h1>What are you waiting for?</h1>
-  </div>
-<body>
-  <div class="card-hover">
-    <div class="card-hover__content">
-      <h3 class="card-hover__title">
-        Make your <span>choice</span> right now!
-      </h3>
-      <p class="card-hover__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quisquam doloremque nostrum laboriosam, blanditiis libero corporis nulla a aut?</p>
-      <a href="#" class="card-hover__link">
-        <span>Learn How</span>
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-        </svg>        
-      </a>
+        ?> <div class="bg-1">
+      <h1>Put your dollar to work.</h1>
     </div>
-    <div class="card-hover__extra">
-      <h4>Learn <span>now</span> and get <span>40%</span> discount!</h4>
+    <div class="bg-2">
+      <h1>Get rewarded.</h1>
     </div>
-    <img src="https://images.unsplash.com/photo-1586511925558-a4c6376fe65f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=60" alt="">
-  </div>
-</body>      
-      <main class="container">       
+    <div class="bg-3">
+      <h1>Smooth transfers.</h1>
+    </div>
+    <div class="bg-4">
+      <h1>Top-class customer service.</h1>
+    </div>
+    <div class="bg-5">
+      <h1>What are you waiting for?</h1>
+    </div>
+    <main class="container">
       <section class="mt-5 mb-5">
         <h2 class="font-weight-bold mb-4">Our Products and Services</h2>
         <div class="row">
@@ -149,26 +126,26 @@
       </section>
       </div>
       </section>
-
       <!-- Modal for Checking Accounts -->
-      <div class="modal fade" id="checking-modal" tabindex="-1" role="dialog" aria-labelledby="checking-modal-label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="checking-modal-label">Checking Accounts</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Open a checking account with us and enjoy easy access to your funds with low fees and competitive interest rates.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
+<div class="modal fade" id="checking-modal" tabindex="-1" role="dialog" aria-labelledby="checking-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="checking-modal-label">Checking Accounts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>Open a checking account with us and enjoy easy access to your funds with low fees and competitive interest rates.</p>
+        <p>Our checking accounts also come with free online banking and mobile app access, so you can manage your money on-the-go.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- Modal for Savings Accounts -->
       <div class="modal fade" id="savings-modal" tabindex="-1" role="dialog" aria-labelledby="savings-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
