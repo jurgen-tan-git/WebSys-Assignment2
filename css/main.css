@@ -130,12 +130,7 @@ img {
     .text {
         font-size: 30px
     }}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
 
 .StreamsHero-header {
     color: #fff;
@@ -226,10 +221,6 @@ img {
 }
 
 
-
-href{
-    color:purple;
-}
 
 .container {
   padding: 2rem 0rem;

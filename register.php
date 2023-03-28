@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<title>Bootstrap Sign up Form Horizontal</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-<link rel="stylesheet" href="css/register.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/register.css">
+    <script defer src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+        </script>
+    <script defer src="js/main.js"></script>
 </head>
 <body>
 <?php
@@ -41,32 +43,32 @@
         <div class="form-group">
 			<label class="control-label col-xs-4" for="fname">First Name:</label>
             <div class="col-xs-8">
-                <input class="form-control" type="text" id="fname" required maxlength="45" name="fname" placeholder="Enter first name">
+                <input class="form-control form-control-lg" type="text" id="fname" required maxlength="45" name="fname" placeholder="Enter first name">
             </div>        	
         </div>
 		<div class="form-group">
 			<label class="control-label col-xs-4" for="lname">Last Name:</label>
 			<div class="col-xs-8">
-            <input class="form-control" type="text" id="lname" required maxlength="45" name="lname" placeholder="Enter last name">
+            <input class="form-control form-control-lg" type="text" id="lname" required maxlength="45" name="lname" placeholder="Enter last name">
             </div>        	
         </div>
         <div class="form-group">
 			<label class="control-label col-xs-4" for="email">Email:</label>
 			<div class="col-xs-8">
-            <input class="form-control" type="email" id="email" required name="email" placeholder="Enter email">
+            <input class="form-control form-control-lg" type="email" id="email" required name="email" placeholder="Enter email">
             </div>        	
         </div>
 
 		<div class="form-group">
 			<label class="control-label col-xs-4" for="pwd">Password:</label>
 			<div class="col-xs-8">
-            <input class="form-control" type="password" id="pwd" required name="pwd" placeholder="Enter password">
+            <input class="form-control form-control-lg" type="password" id="pwd" required name="pwd" placeholder="Enter password">
             </div>        	
         </div>
 		<div class="form-group">
 			<label class="control-label col-xs-4" for="pwd_confirm">Confirm Password:</label>
 			<div class="col-xs-8">
-            <input class="form-control" type="password" id="pwd_confirm" required name="pwd_confirm" placeholder="Confirm password">
+            <input class="form-control form-control-lg" type="password" id="pwd_confirm" required name="pwd_confirm" placeholder="Confirm password">
             </div>        	
         </div>
 
@@ -74,7 +76,7 @@
 			<label class="control-label col-xs-4" for="telegram_id">Register Telegram Bot 2FA:</label>
 			<div class="col-xs-8">
 
-            <input class="form-control" type="text" id="telegram_id" required name="telegram_id" placeholder="Telegram ID">
+            <input class="form-control form-control-lg" type="text" id="telegram_id" required name="telegram_id" placeholder="Telegram ID">
             <a href="https://t.me/bankofsit_bot?start=start">Here</a>
             <label for="telegram_check" id="result"></label>
             <input type="hidden" name="tg_verified" id="tg_verified" value="0">

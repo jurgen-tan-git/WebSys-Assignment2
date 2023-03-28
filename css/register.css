@@ -16,8 +16,16 @@ body {
 }
 .signup-form {
     width: 500px;
+    height: auto;
     margin: 0 auto;
     padding: 30px 0;
+}
+
+.login-form{
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px 0;
+    
 }
 .signup-form h2 {
     color: #333;
