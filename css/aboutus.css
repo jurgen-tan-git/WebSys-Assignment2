@@ -29,9 +29,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     color: #777;
 }
 
+.SIT-map{
+    margin-top: 100px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 50px;
+    margin-bottom: 20px;
+}
 .SIT-map h3{
-    color: white;
+    color: black;
 }
 .SIT-map  figcaption{
-    color: white;
+    color: black;
+}
+
+#building{
+    
+    width: 100%;
+}
+#map{
+    width: 100%;
 }

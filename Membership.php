@@ -12,8 +12,9 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
         </script>
     <script defer src="js/main.js"></script>
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/home.css">
+
 </head>
 
 <body>
@@ -23,18 +24,19 @@
     
 
     <main class="container">
+        <section>
         <div class="top-container">
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 2</div>
-                    <img src="images/Cardbanner.png" style="width:100%">
+                    <img src="images/Cardbanner.png" alt="cardbanner1" class="card-banner">
                     <div class="text">Bank today with BANK OF SIT</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 2</div>
-                    <img src="images/Cardbanner2.png" style="width:100%">
+                    <img src="images/Cardbanner2.png" alt="cardbanner2" class="card-banner">
                     <div class="text">The only reliable bank you need</div>
                 </div>
             </div>
@@ -45,12 +47,13 @@
                 <span class="dot"></span>
             </div>
         </div>
-        
+        </section>
+        <section>
         <div class="card-container">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="images/card_face.png" alt="alt" width="260px" height="180px" />
+                        <img src="images/card_face.png" alt="alt">
                     </div>
                     <div class="flip-card-back">
                         <div class="strip"></div>
@@ -64,7 +67,7 @@
             <div class="flip-card-2">
                 <div class="flip-card-inner-2">
                     <div class="flip-card-front-2">
-                        <img src="images/card_face_2.png" alt="alt" width="260px" height="180px" />
+                        <img src="images/card_face_2.png" alt="alt">
                     </div>
                     <div class="flip-card-back-2">
                         <div class="strip"></div>
@@ -76,9 +79,10 @@
                 </div>
             </div>
         </div>
-            <img src="images/carddifferent.png" style="width:100%">
+        </section>
+        <img src="images/carddifferent.png" style="width:100%" alt="cards">
 
-        </div>
+     
     </main>
     <?php
     include "subview/footer.inc.php";
