@@ -190,6 +190,7 @@ h2 {
   overflow: hidden;
   outline: 2px solid #000000 !important;
   background-color: transparent !important;
+  border-color: white !important;
 }
 
 .btn-primary:hover {
