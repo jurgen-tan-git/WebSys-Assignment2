@@ -17,6 +17,9 @@ function checkInput() {
             if(this.responseText == "false"){
                 result.innerHTML = "Verification failed, please start the bot using the link above and try again.";
                 tg_verified.value = "0";
+            }else if(this.responseText == "exist"){
+                result.innerHTML = "This telegram exists please use another telegram ID.";
+                tg_verified.value = "0";
             } else {
                 result.innerHTML = "Verified";
                 tg_verified.value = "1";

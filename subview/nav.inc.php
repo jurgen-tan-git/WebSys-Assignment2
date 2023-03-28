@@ -10,18 +10,16 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>My Website</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<!-- Bootstrap CSS -->
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
 	<!-- Font Awesome CSS -->
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.3/css/all.css'>
 	<link rel="stylesheet" href="css/nav.css">
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<!-- jQuery -->
-	<!-- <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script> -->
+	<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+	<!-- Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
 	<!-- Bootstrap JS -->
-	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
 	<script src="js/main.js"></script>
 </head>
 
@@ -56,12 +54,7 @@ session_start();
 
 	?>
 	<main class="container">
-		<?php if ($register_msg): ?>
-			<div id="registerSuccessMessage" class="alert" role="alert">
-				<?php echo $register_msg ?>
-			</div>
-		<?php endif; ?>
-		<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand" href="index.php"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
@@ -73,6 +66,7 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="index.php">Home</a>
 					</li>
+					<?php if(!isset($_SESSION['email'])):?>
 					<li class="nav-item">
 						<a class="nav-link" href="membership.php">Memberships</a>
 					</li>
@@ -82,11 +76,30 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="about_us.php">About Us</a>
 					</li>
-					<li class="nav-item">
+						<li class="nav-item">
 						<a class="nav-link" href="login.php">Login</a>
 					</li>
+					<?php endif; ?>
 
-					<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+					<?php if(isset($_SESSION['email'])):?>
+					<li class='nav-item'>
+						<a class='nav-link' href='account.php'>Account Details</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='transfer.php'>Transfer</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='close_account.php'>Close Account</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='process/process_logout.php'>Logout</a>
+					</li>
+					<?php endif; ?>
+
+					<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
 						aria-labelledby="loginModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -132,7 +145,7 @@ session_start();
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>-->
 				</ul>
 			</div>
 		</nav>

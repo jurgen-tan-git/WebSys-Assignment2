@@ -1,6 +1,6 @@
 <?php
-    include_once __DIR__. '/../helpers/sql.php';
-
+    require_once __DIR__. '/../vendor/autoload.php';
+    include_once '../helpers/sql.php';
     $db = new Mysql_Driver();
 
     $email = $fname = $lname = $pwd = $pwd_cfm = $pwd_hashed = $tg_chat_id = $errorMsg = "";
@@ -43,10 +43,10 @@
             $success = false;
         }
         else{
-            if(!password_verify($_POST["pwd_confirm"],$pwd)){
-                $errorMsg .= "Passwords do not match.<br>";
-                $success = false;
-            }
+            // if(!password_verify($_POST["pwd_confirm"],$pwd)){
+            //     $errorMsg .= "Passwords do not match.<br>";
+            //     $success = false;
+            // }
         }
     
         if (empty($_POST["email"]))
@@ -67,7 +67,7 @@
         if (!empty($_POST["tg_chat_id"]))
         {
             $tg_chat_id = sanitize_input($_POST["tg_chat_id"]);
-           // echo "chatid". $tg_chat_id ;
+            //echo "chatid". $tg_chat_id ;
             if($tg_chat_id == ""){
                 $errorMsg .= "Telegram ID cannot be empty.<br>";
                 $success = false;
@@ -76,7 +76,17 @@
 
         if ($success)
         {   
-            $savetodb = saveMemberToDB();
+            $result = true;
+            try{
+                $db->connect();
+                $qry = "INSERT INTO account (fname, lname,email,tg_chat_id, password) VALUES (?, ?,?, ?, ?)";
+                $result = $db->query($qry,$fname, $lname, $email, $tg_chat_id, $pwd);
+            }catch (Exception $e) {
+                $result = $e;
+            } finally {
+                $db->close();
+            }
+            $savetodb = $result;
             if (is_int($savetodb)){
                 header("Location: ../login.php?register=success");
             }else if(str_contains($savetodb,"duplicate")){
@@ -105,16 +115,5 @@
     function saveMemberToDB()
     {
         global $fname, $lname, $email, $tg_chat_id, $pwd, $db;
-        $result = true;
-        try{
-            $db->connect();
-            $qry = "INSERT INTO account (fname, lname,email,tg_chat_id, password) VALUES (?, ?,?, ?, ?)";
-            $result = $db->query($qry,$fname, $lname, $email, $tg_chat_id, $pwd);
-        }catch (Exception $e) {
-            echo $e;
-        } finally {
-            $db->close();
-            return $result;
-        }
     }
 ?>

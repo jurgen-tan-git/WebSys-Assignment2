@@ -17,7 +17,7 @@
                 crossorigin="anonymous">
         </script>
         <script defer src="js/main.js"></script>
-        <script defer src="js/register.js"></script>
+        <script defer src="js/transfer.js"></script>
     </head>
     <body>
         <?php
@@ -39,24 +39,26 @@
                     <?php echo $register_error ?>
                 </div>
             <?php endif; ?>
-            <h1>Add Transaction</h1>
+            <h1>Transfer</h1>
             <p>
             </p>
-            <form action="process/process_transaction.php" method="post" validate>
+            <form action="process/process_transfer.php" onsubmit="return checkValue()" method="post" validate>
                 <div class="form-group">
                     <label for="amount">Amount:</label>
                     <input class="form-control" type="number" step='0.01' id="amount" maxlength="45" name="amount" placeholder="Enter Amount">
                 </div>
                 <div class="form-group">
-                    <label for="type">Type:</label>
-                    <select class="form-control" name="type" id="type">
-                        <option value="1">Deposit</option>
-                        <option value="2">Withdrawal</option>
-                    </select>
+                <!--get otp-->
+                    <label for="toAccount">To:</label>
+                    <!--input otp-->
+                    <input class="form-control" type="email" id="toAccount" required name="toAccount" placeholder="To email:">
+                    <button class="btn" type="button" id="btnCheck" onclick="checkaccount()">Check Account</button>
+                    <label for="account_check" id="result"></label>
+                    <input type="hidden" name="acct_exist" id="acct_exist" value="0">
                 </div>
-                <input type="hidden" name="addTransaction" value="true">
+                <input type="hidden" name="transfer" value="true">
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-primary" type="submit">Transfer</button>
                 </div>
             </form>
         </main>

@@ -17,9 +17,8 @@
         } else {
             // check if account is valid
             $db->connect();
-            $qry = "SELECT * FROM Account WHERE email = ?";
+            $qry = "SELECT * FROM account WHERE email = ?";
             $result = $db->query($qry, $email);
-            $db->close();
             if ($db->num_rows($result) > 0) { 
                 $row = $db->fetch_array($result);
                 $userId = $row["id"]; 
@@ -39,7 +38,6 @@
                     $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data) );
 
                     //update otp to db
-                    $db->connect();
                     $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE email=?";
                     $result = $db->query($qry,password_hash($otp,PASSWORD_DEFAULT),$email);
                     $db->close();
@@ -47,6 +45,7 @@
                     exit;
                 }
             }
+            $db->close();
             header("Location: ../login.php?error=incorrect");
             exit;
         }
@@ -62,7 +61,7 @@
         } else {
             // check if otp is valid
             $db->connect();
-            $qry = "SELECT * FROM Account WHERE email = ?";
+            $qry = "SELECT * FROM account WHERE email = ?";
             $result = $db->query($qry, $_SESSION['email']);
             $db->close();
             
@@ -97,7 +96,7 @@
             $selector = bin2hex(random_bytes(8));
             $token = random_bytes(32);
 
-            $url = "/../createNewPassword.php?selector=" . $selector . "&validator=" . bin2hex($token);
+            $url = "create_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
             
             // Set expiry for tokens
             $email = $_POST["email"];

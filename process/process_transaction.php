@@ -39,26 +39,25 @@
     function createTransaction($type,$amount)
     {
         $result = true;
-        global $account_id,$balance,$db;
+        global $email,$account_id,$balance,$db;
         try{
             //insert transaction
             $db->connect();
-            $qry = "INSERT INTO transaction (type, amount,balance) VALUES (?, ?,?)";
             //get transaction_id
             if ($type==1){
-                $balance += $amount;
+                $operator = "+";
             }else{
-                $balance -= $amount;
+                $operator = "-";
             }
-            $result = $db->query($qry,$type,$amount,$balance);
+            $qry = "INSERT INTO transaction (type, amount, balance) VALUES (?,?, (SELECT balance FROM account WHERE email = ?)".$operator."?);";
+            $result = $db->query($qry,$type,$amount,$email,$amount);
             //check if managed to insert
             if(!empty($result)|!empty($account_id)){
                 $qry = "INSERT INTO account_transaction (account_id, transaction_id) VALUES (?, ?)";
-                $result = $db->query($qry,$account_id,$result);
+                $db->query($qry,$account_id,$result);
                 //update account balance
-                $qry = "UPDATE account SET balance=? WHERE account_id=?";
-                $result = $db->query($qry,$balance, $account_id);
-                $_SESSION['balance']=$balance;
+                $qry = "UPDATE account SET balance=(SELECT balance FROM transaction WHERE transaction_id = ?) WHERE account_id=?";
+                $result = $db->query($qry,$result, $account_id);
             }
         }catch (Exception $e) {
             echo $e;
