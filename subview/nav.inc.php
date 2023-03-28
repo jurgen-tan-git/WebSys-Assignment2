@@ -91,9 +91,11 @@ session_start();
 						<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
 					</li>
 					<li class='nav-item'>
+						<a class='nav-link' href='transfer.php'>Transfer</a>
+					</li>
+					<li class='nav-item'>
 						<a class='nav-link' href='close_account.php'>Close Account</a>
 					</li>
-					<a class='nav-link'><?php echo $_SESSION['fname']?></a>
 					<li class='nav-item'>
 						<a class='nav-link' href='process/process_logout.php'>Logout</a>
 					</li>
