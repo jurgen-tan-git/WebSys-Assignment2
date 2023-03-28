@@ -2,6 +2,13 @@ body {
 background-color: #000000;
 font-family: Verdana, sans-serif;
 }
+nav {
+              font-size: 20px;
+    background-color: #000000;
+  }
+.container {
+    padding: 2rem 0rem;
+  }
 
 href{
   color:#592f9b;
@@ -36,11 +43,9 @@ border-radius: 3rem;
 padding: 1rem;
 }
 
-.social-buttons .btn {
-margin: 0 0.5rem 1rem;
-}
-
-.signup-section {
-padding: 0.3rem 0rem;
-text-align: center;
+.js-nav {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  left: 2em;
 }

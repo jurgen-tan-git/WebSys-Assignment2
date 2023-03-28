@@ -3,6 +3,7 @@ session_start();
 ?>
 
 <!DOCTYPE html>
+<html lang="en-us">
 
 <head>
 	<meta charset="UTF-8">
@@ -18,7 +19,7 @@ session_start();
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<!-- jQuery -->
-	<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+	<!-- <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script> -->
 	<!-- Bootstrap JS -->
 	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 	<script src="js/main.js"></script>
@@ -82,10 +83,10 @@ session_start();
 						<a class="nav-link" href="about_us.php">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="modal" data-target="#loginModal">Login</a>
+						<a class="nav-link" href="login.php">Login</a>
 					</li>
 
-					<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+					<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
 						aria-labelledby="loginModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -131,7 +132,7 @@ session_start();
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</ul>
 			</div>
 		</nav>

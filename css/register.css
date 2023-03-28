@@ -1,10 +1,3 @@
-/* .container h1,p{
-    color: white;
-}
-label{
-    color: white;
-} */
-
 body {
     color: #ffff;
     background: #ffff;
@@ -46,13 +39,11 @@ body {
 }
 .signup-form label {
     font-weight: normal;
-    font-size: 13px;
 }
 .signup-form input[type="checkbox"] {
     margin-top: 2px;
 }
 .signup-form .btn {        
-    font-size: 16px;
     font-weight: bold;
     background: #592f9b;
     border: none;

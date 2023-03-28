@@ -33,7 +33,7 @@
 			<h2>Member Registration</h2>
             <p>
                 For existing members, please go to the
-                <a href="login_temp.php">Sign In page</a>.
+                <a href="login.php">Sign In page</a>.
             </p>
 		</div>
         <form action="process/process_register.php" method="post" onsubmit="return checkValue()" validate>
