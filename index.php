@@ -70,6 +70,7 @@
                 <img src="images/ready.jpg"  style="width:100%">
                 <img src="images/end.jpg"  style="width:100%">
             </div>
+        </main>
         <?php
             include "subview/footer.inc.php";
         ?>       

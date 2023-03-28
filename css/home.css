@@ -7,7 +7,19 @@ img {
     border-style: solid double;
     border-color: black;
 }
+.img-popup{
+  height: 320px;
+  bottom: 60px;
+  padding: 10px;
+  background: #cccccc;
+  position: absolute;
+  box-shadow: 0px 0px 15px grey;
+  z-index: 1;
+}
 
+.img-popup img{
+    height:100%;
+}
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
