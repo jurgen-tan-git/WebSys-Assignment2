@@ -68,6 +68,7 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="index.php">Home</a>
 					</li>
+					<?php if(!isset($_SESSION['email'])):?>
 					<li class="nav-item">
 						<a class="nav-link" href="membership.php">Memberships</a>
 					</li>
@@ -77,7 +78,6 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="about_us.php">About Us</a>
 					</li>
-					<?php if(!isset($_SESSION['email'])):?>
 						<li class="nav-item">
 						<a class="nav-link" href="login.php">Login</a>
 					</li>
@@ -91,9 +91,11 @@ session_start();
 						<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
 					</li>
 					<li class='nav-item'>
+						<a class='nav-link' href='transfer.php'>Transfer</a>
+					</li>
+					<li class='nav-item'>
 						<a class='nav-link' href='close_account.php'>Close Account</a>
 					</li>
-					<a class='nav-link'><?php echo $_SESSION['fname']?></a>
 					<li class='nav-item'>
 						<a class='nav-link' href='process/process_logout.php'>Logout</a>
 					</li>
