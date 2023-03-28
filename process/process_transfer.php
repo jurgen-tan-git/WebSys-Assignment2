@@ -48,14 +48,14 @@ if (isset($_POST["transfer"])) {
         $toEmail = $_POST['toAccount'];
         $amount = $_POST['amount'];
         //deduct from email
-        createTransaction(0,$amount,$email);
+        createTransaction(0,$amount,$email,$toEmail);
         //add to toEmail
-        createTransaction(1,$amount,$toEmail);
+        createTransaction(1,$amount,$email,$toEmail);
         header("Location: ../account.php");
     }
 }
 //create transaction
-function createTransaction($type,$amount,$email)
+function createTransaction($type,$amount,$fromEmail,$toEmail)
 {
     $result = true;
     global $db;
@@ -65,18 +65,22 @@ function createTransaction($type,$amount,$email)
         //get transaction_id
         if ($type==1){
             $operator = "+";
+            $frEmail = $toEmail;
+            $rcvEmail = $fromEmail;
         }else{
             $operator = "-";
+            $frEmail = $fromEmail;
+            $rcvEmail = $toEmail;
         }
-        $qry = "INSERT INTO transaction (type, amount, balance) VALUES (?,?, (SELECT balance FROM account WHERE email = ?)".$operator."?);";
-        $result = $db->query($qry,$type,$amount,$email,$amount);
+        $qry = "INSERT INTO transaction (type, amount, balance,istransfer,email) VALUES (?,?, (SELECT balance FROM account WHERE email = ?)".$operator."?,1,?);";
+        $result = $db->query($qry,$type,$amount,$frEmail,$amount,$rcvEmail);
         //check if managed to insert
         if(!empty($result)|!empty($email)){
             $qry = "INSERT INTO account_transaction (account_id, transaction_id) VALUES ((SELECT account_id FROM account WHERE email = ?), ?)";
-            $db->query($qry,$email,$result);
+            $db->query($qry,$frEmail,$result);
             //update account balance
             $qry = "UPDATE account SET balance=(SELECT balance FROM transaction WHERE transaction_id = ?) WHERE email=?";
-            $result = $db->query($qry,$result, $email);
+            $result = $db->query($qry,$result, $frEmail);
         }
     }catch (Exception $e) {
         echo $e;

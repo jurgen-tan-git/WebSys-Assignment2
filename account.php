@@ -41,7 +41,7 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">Date</th>
-          <th scope="col">T</th>
+          <th scope="col">Type</th>
           <th scope="col">Amount</th>
           <th scope="col">Balance</th>
         </tr>
@@ -49,19 +49,30 @@
       <tbody>
         <?php
             $db->connect();
-            $qry = "SELECT t.*,a.account_id,a.email FROM transaction t INNER JOIN account_transaction atran ON atran.transaction_id = t.transaction_id INNER JOIN account a ON atran.account_id = a.account_id WHERE email = ? ORDER BY timestamp DESC";
+            $qry = "SELECT t.*,a.account_id FROM transaction t INNER JOIN account_transaction atran ON atran.transaction_id = t.transaction_id INNER JOIN account a ON atran.account_id = a.account_id WHERE a.email = ? ORDER BY timestamp DESC";
             $result = $db->query($qry, $_SESSION['email']);
             $db->close();
             if ($db->num_rows($result)>0) { 
               while($row = $db->fetch_array($result)) {
                 //add into list or print out row
-                if ($row['type']==1){
-                  $type = "Deposit";
-                  $class = "success";
+                if ($row['istransfer']==1){
+                  if ($row['type']==1){
+                    $class = "success";
+                    $type = "Transfer from ".$row['email'];
+                  }else{
+                    $class = "danger";
+                    $type = "Transfer to ".$row['email'];
+                  }
                 }else{
-                  $type = "Withdrawal";
-                  $class = "danger";
+                  if ($row['type']==1){
+                    $type = "Deposit";
+                    $class = "success";
+                  }else{
+                    $type = "Withdrawal";
+                    $class = "danger";
+                  }
                 }
+                
                 if ($row['balance'] > 0){
                   $balance_class = "success";
                 }else{
