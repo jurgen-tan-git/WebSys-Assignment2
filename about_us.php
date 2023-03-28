@@ -95,9 +95,12 @@
                     </form>
                 </center>
               
-        <?php
-            include "subview/footer.inc.php";
-        ?>       
+           
          </div>
+           
+        </main>
+         <?php
+            include "subview/footer.inc.php";
+        ?>    
     </body>
 </html>
