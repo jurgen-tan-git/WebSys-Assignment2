@@ -106,15 +106,11 @@
                             </div>
                         </div>
                     </form>
-                    <img src="images/black.jpg"  width="500" height="100">
-                   
                 </center>
               
-            <div class="footer-margin">
         <?php
             include "subview/footer.inc.php";
         ?>       
-         </div>     
          </div>
     </body>
 </html>

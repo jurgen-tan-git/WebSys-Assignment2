@@ -32,7 +32,7 @@
     }
     ?>
     <main class="container">
-        <div class="d-flex justify-content-center align-items-center container">
+        <div class="d-flex justify-content-center align-items-center">
             <div class="card py-5 px-3">
                 <h1 class="m-0">OTP:</h1>
                 <span class="mobile-text">Enter the code we just send on your mobile phone</span>
@@ -59,17 +59,12 @@
                 <button class="btn btn-primary" id="submit" onclick="validateOTP()" type="submit">Log In</button>
             </div>
         </div>
-
-
-
         </form>
         </div>
     </main>
-    <div class="footer-margin">
         <?php
         include "subview/footer.inc.php";
         ?>
-    </div>
 </body>
 
 </html>

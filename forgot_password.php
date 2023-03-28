@@ -53,5 +53,8 @@
             </div>
             <!-- img logo here -->
         </main>
+        <?php
+            include "subview/footer.inc.php";
+        ?> 
     </body>
 </html>

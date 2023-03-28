@@ -94,10 +94,8 @@
     </form>
 	
 </div>
-<div class="footer-margin">
-<?php
+        <?php
             include "subview/footer.inc.php";
         ?>   
-</div>
 </body>
 </html>

@@ -98,11 +98,9 @@
   </div>
   <div>
   </div>
-  <div class="footer-margin">
         <?php
             include "subview/footer.inc.php";
         ?>       
-         </div>
 </body>
 
 </html>

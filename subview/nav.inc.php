@@ -53,7 +53,6 @@ session_start();
 	}
 
 	?>
-	<main class="container">
 	<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand" href="index.php"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
@@ -149,7 +148,4 @@ session_start();
 				</ul>
 			</div>
 		</nav>
-	</main>
-
-	
 </body>
