@@ -51,18 +51,18 @@ if (!empty($_GET['deregister_otp'])){
 
 //form sent
 if (isset($_POST["deregister_otp"])) {
-    $password = $_POST["password"];
+    $password = $_POST["pwd"];
     $otp = $_POST["otp"];
     $email = $_SESSION["email"];
     // check if email field
-    if (isset($_SESSION["email"]) && empty($password) && empty($otp)) {
+    if (!isset($_SESSION["email"]) || empty($password) || empty($otp)) {
         //check if have have email or password
-        header("Location: ../close_account.php?error=incrrect");
+        header("Location: ../close_account.php?error=empty");
         exit;
     } else {
         //check if account is valid
         $db->connect();
-        $qry = "SELECT * FROM Account WHERE email = ?";
+        $qry = "SELECT * FROM account WHERE email = ?";
         $result = $db->query($qry, $email);
         $db->close();
         if ($db->num_rows($result) > 0) {
@@ -71,7 +71,7 @@ if (isset($_POST["deregister_otp"])) {
             $fname = $row["fname"];
             $chat_id = $row["tg_chat_id"];
             //check otp and password correct
-            if (password_verify($password, $row["password"]) || password_verify($otp, $row["otp"])) {
+            if (password_verify($password, $row["password"]) && password_verify($otp, $row["otp"])) {
                 //delete account_transaction & transaction
                 $db->connect();
                 $qry = "DELETE t,tr FROM account_transaction t INNER JOIN account a ON t.account_id = a.account_id INNER JOIN transaction tr ON tr.transaction_id = t.transaction_id WHERE email = ?";
@@ -84,13 +84,13 @@ if (isset($_POST["deregister_otp"])) {
                 header("Location: ../login.php");
                 exit;
             }else{
-                header("Location: ../login.php?error=incorrect");
+                header("Location: ../close_account.php?error=incorrect");
                 exit;
             }
         }
-        header("Location: ../login.php?error=incorrect");
+        header("Location: ../close_account.php?error=error");
         exit;
-    }
+    }   
 }
 if (isset($_POST["input-otp"])){        
     $input = $_POST["input-otp"];
@@ -102,7 +102,7 @@ if (isset($_POST["input-otp"])){
     } else {
         // check if otp is valid
         $db->connect();
-        $qry = "SELECT * FROM Account WHERE email = ?";
+        $qry = "SELECT * FROM account WHERE email = ?";
         $result = $db->query($qry, $_SESSION['email']);
         $db->close();
         

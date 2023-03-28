@@ -9,6 +9,7 @@
         integrity=
         "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous">
+        <link rel="stylesheet" href="css/form.css">
         <link rel="stylesheet" href="css/main.css">
         <script defer
                 src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -44,7 +45,7 @@
             <form action="process/process_transaction.php" method="post" validate>
                 <div class="form-group">
                     <label for="amount">Amount:</label>
-                    <input class="form-control" type="text" id="amount" maxlength="45" name="amount" placeholder="Enter Amount">
+                    <input class="form-control" type="number" step='0.01' id="amount" maxlength="45" name="amount" placeholder="Enter Amount">
                 </div>
                 <div class="form-group">
                     <label for="type">Type:</label>

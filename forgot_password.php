@@ -32,13 +32,13 @@
         <?php
             include "subview/nav.inc.php";
         ?>
-        <main class="login-container">
+        <main class="container">
             <div class="login">
                 <h1>Reset your Password</h1>
                 <p>An e-mail will be send to you with instructions on how to reset your password.</p>
                 <form action="<?php echo "process/process_login.php" ?>" method="POST">
                     <div class="form-group">
-                    <label for="emailAddressField"></label>
+                        <label for="emailAddressField"></label>
                         <input type="email" class="form-control" id="emailAddressField" required placeholder="Email Address" name="email" value="<?php echo $email ?>" >
                     </div>
                     <input type="hidden" name="forgotPassword" value="true">
