@@ -16,6 +16,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
       font-family: initial;
     }
 
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.modal-title{
+  color: #000;
+}
+
+.register-link {
+  color: blue;
+  text-decoration: underline;
+}
+
+h2 {
+  background: radial-gradient(circle, #553c9a, #ee4b2b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
 .card {
   background-color: #f8f9fa;
 }
@@ -34,9 +58,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     padding:0;
     box-sizing: border-box;
 }*/
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
 
 
 .bg-1{
@@ -143,14 +164,6 @@ body {
 .col-lg-4 {
   display: flex;
   justify-content: center;
-}
-h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.modal-backdrop {
-  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .modal-backdrop.show {
