@@ -38,7 +38,7 @@
                     $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data) );
 
                     //update otp to db
-                    $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE email=?";
+                    $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 5 MINUTE) WHERE email=?";
                     $result = $db->query($qry,password_hash($otp,PASSWORD_DEFAULT),$email);
                     $db->close();
                     header("Location: ../login_otp.php");

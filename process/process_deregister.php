@@ -41,7 +41,7 @@ if (!empty($_GET['deregister_otp'])){
 
         //update otp to db
         $db->connect();
-        $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 1 MINUTE) WHERE email=?";
+        $qry= "UPDATE account SET otp=?, otp_timestamp_expired=DATE_ADD(NOW(), INTERVAL 5 MINUTE) WHERE email=?";
         $result = $db->query($qry,password_hash($otp,PASSWORD_DEFAULT),$email);
         $db->close();
     }
