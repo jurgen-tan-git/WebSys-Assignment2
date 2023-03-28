@@ -10,18 +10,16 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>My Website</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<!-- Bootstrap CSS -->
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
 	<!-- Font Awesome CSS -->
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.3/css/all.css'>
 	<link rel="stylesheet" href="css/nav.css">
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<!-- jQuery -->
-	<!-- <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script> -->
+	<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+	<!-- Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
 	<!-- Bootstrap JS -->
-	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
 	<script src="js/main.js"></script>
 </head>
 
