@@ -52,7 +52,7 @@
                 </div>
             <?php endif; ?>
             <div class="signup-form">
-                <form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">
+            <form action="process/process_login.php" method="POST" class="form-horizontal">
                     <div class="col-xs-8 col-xs-offset-4">
                         <h2>Member Log In</h2>
                         <p>
@@ -60,8 +60,7 @@
                             <a href="register.php">Sign Up page</a>.
                         </p>
                     </div>
-                    <form action="process/process_login.php" method="POST">
-                        <div class="form-group">
+                         <div class="form-group">
                             <label class="control-label col-xs-4" for="emailAddressField">Email Address:</label>
                             <div class="col-xs-8">
                                 <input type="email" class="form-control" id="emailAddressField" required

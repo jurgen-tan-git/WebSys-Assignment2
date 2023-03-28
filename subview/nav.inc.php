@@ -56,12 +56,7 @@ session_start();
 
 	?>
 	<main class="container">
-		<?php if ($register_msg): ?>
-			<div id="registerSuccessMessage" class="alert" role="alert">
-				<?php echo $register_msg ?>
-			</div>
-		<?php endif; ?>
-		<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand" href="index.php"><img src="images/logo.jpg" width="80" height="40" alt="Logo"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
@@ -82,11 +77,29 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="about_us.php">About Us</a>
 					</li>
-					<li class="nav-item">
+					<?php if(!isset($_SESSION['email'])):?>
+						<li class="nav-item">
 						<a class="nav-link" href="login.php">Login</a>
 					</li>
+					<?php endif; ?>
 
-					<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+					<?php if(isset($_SESSION['email'])):?>
+					<li class='nav-item'>
+						<a class='nav-link' href='account.php'>Account Details</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='add_transaction.php'>Add Transaction</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link' href='close_account.php'>Close Account</a>
+					</li>
+					<a class='nav-link'><?php echo $_SESSION['fname']?></a>
+					<li class='nav-item'>
+						<a class='nav-link' href='process/process_logout.php'>Logout</a>
+					</li>
+					<?php endif; ?>
+
+					<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
 						aria-labelledby="loginModal" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -132,7 +145,7 @@ session_start();
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>-->
 				</ul>
 			</div>
 		</nav>

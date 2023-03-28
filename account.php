@@ -23,7 +23,7 @@
 
             //get balance
             $db->connect();
-            $qry = "SELECT * FROM Account WHERE email = ?";
+            $qry = "SELECT * FROM account WHERE email = ?";
             $result = $db->query($qry, $_SESSION['email']);
             $db->close();
             if ($db->num_rows($result) > 0) {
