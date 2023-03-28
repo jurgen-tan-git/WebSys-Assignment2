@@ -12,27 +12,14 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
         </script>
     <script defer src="js/main.js"></script>
+    <link rel="stylesheet" href="css/card.css">
 </head>
 
 <body>
     <?php
     include "subview/nav.inc.php";
     ?>
-    <img src="images/black.jpg" width="500" height="110">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <<img src="images/card_face.jpg" alt="alt" />
-            </div>
-            <div class="flip-card-back">
-                <div class="strip"></div>
-                <div class="mstrip"></div>
-                <div class="sstrip">
-                    <p class="code">***</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <main class="container">
         <div class="top-container">
@@ -56,6 +43,38 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="images/card_face.png" alt="alt" width="260px" height="180px" />
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="strip"></div>
+                        <div class="mstrip"></div>
+                        <div class="sstrip">
+                            <p class="code">***</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card-2">
+                <div class="flip-card-inner-2">
+                    <div class="flip-card-front-2">
+                        <img src="images/card_face_2.png" alt="alt" width="260px" height="180px" />
+                    </div>
+                    <div class="flip-card-back-2">
+                        <div class="strip"></div>
+                        <div class="mstrip"></div>
+                        <div class="sstrip">
+                            <p class="code">***</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
             <img src="images/carddifferent.png" style="width:100%">
 
         </div>
