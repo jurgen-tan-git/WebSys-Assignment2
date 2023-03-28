@@ -1,4 +1,6 @@
 <?php
+include_once '../helpers/sql.php';
+$db = new Mysql_Driver();
 header('Content-Type: text/plain');
 error_reporting(E_ERROR | E_PARSE);
 $apiToken = "5954482111:AAGscQl3YDz5db9Ixzuu-OGFiGShXPBych4";
@@ -6,16 +8,27 @@ $chat_id = check_telegram_verified($_GET['telegram_id']);
 $response = "";
 
 if ($chat_id != false){
-    $message = "DO NOT REPLY. This message is a verification by Bank of SIT." ;
-    $data = [
-        'chat_id' => $chat_id,
-        'text' => $message 
-    ];
-    $json_response = curl_req("https://api.telegram.org/bot".$apiToken."/sendMessage?" . http_build_query($data) );
-    if($json_response["ok"] == false){
-        $response = "false";
-    }else{
-        $response = $chat_id;
+    //check db exist
+    $db->connect();
+    $qry = "SELECT * FROM account WHERE tg_chat_id = ?";
+    $result = $db->query($qry, $chat_id);
+    $db->close();
+    if ($db->num_rows($result) > 0) { 
+        $response = "exist";
+    }
+    else{
+        //does not exist
+        $message = "DO NOT REPLY. This message is a verification by Bank of SIT." ;
+        $data = [
+            'chat_id' => $chat_id,
+            'text' => $message 
+        ];
+        $json_response = curl_req("https://api.telegram.org/bot".$apiToken."/sendMessage?" . http_build_query($data) );
+        if($json_response["ok"] == false){
+            $response = "false";
+        }else{
+            $response = $chat_id;
+        }
     }
 } else{
   $response = "false";  
