@@ -12,31 +12,30 @@
     <link rel="stylesheet" href="css/services.css">
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
-    <script src="converter.js"></script>
-  </head>
-  <?php
+  </head> <?php
         include "chatbot.php";
-    ?>
-  <body id="bootstrap-overrides"> <?php
+    ?> <body id="bootstrap-overrides"> <?php
             include "subview/nav.inc.php";
-        ?> <div class="bg-1">
-      <h1>Put your dollar to work.</h1>
-    </div>
-    <div class="bg-2">
-      <h1>Get rewarded.</h1>
-    </div>
-    <div class="bg-3">
-      <h1>Smooth transfers.</h1>
-    </div>
-    <div class="bg-4">
-      <h1>Top-class customer service.</h1>
-    </div>
-    <div class="bg-5">
-      <h1>What are you waiting for?</h1>
-    </div>
+        ?> <section>
+      <div class="bg-1">
+        <h1>Put your dollar to work.</h1>
+      </div>
+      <div class="bg-2">
+        <h1>Get rewarded.</h1>
+      </div>
+      <div class="bg-3">
+        <h1>Smooth transfers.</h1>
+      </div>
+      <div class="bg-4">
+        <h1>Top-class customer service.</h1>
+      </div>
+      <div class="bg-5">
+        <h1>What are you waiting for?</h1>
+      </div>
+    </section>
     <main class="container">
       <section class="mt-5 mb-5">
-        <h2 class="font-weight-bold mb-4">Our Products and Services</h2>
+        <h2 class="font-weight-bold mb-4" style="font-size: 3em;">Our Products and Services</h2>
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="firstAnimation">
@@ -114,8 +113,6 @@
             </div>
           </div>
         </div>
-      </section>
-      </div>
       </section>
       <!-- Modal for Checking Accounts -->
       <div class="modal fade" id="checking-modal" tabindex="-1" role="dialog" aria-labelledby="checking-modal-label" aria-hidden="true">
@@ -206,44 +203,18 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="amount">Amount:</label>
-                  <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
-                </div>
-                <div class="form-group">
-                  <label for="from">From currency:</label>
-                  <select class="form-control" id="from">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="JPY">JPY</option>
-                    <option value="GBP">GBP</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="to">To currency:</label>
-                  <select class="form-control" id="to">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="JPY">JPY</option>
-                    <option value="GBP">GBP</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="result">Result:</label>
-                  <input type="text" class="form-control" id="result" disabled>
-                </div>
-              </form>
+              <p>We understand that running a small business can be challenging, and that's why we offer a wide range of banking services tailored specifically to meet the needs of small businesses like yours. From business checking accounts to loans and lines of credit, we have the tools and expertise to help your business thrive.</p>
+              <p>With our business checking accounts, you can easily manage your day-to-day transactions and keep track of your finances. Our online banking platform allows you to easily monitor your account, pay bills, and even deposit checks from the convenience of your own office.</p>
+              <p>At our bank, we are committed to providing exceptional customer service and building strong relationships with our small business clients. Our team of experienced bankers is always available to answer your questions, provide guidance, and help you achieve your financial goals. So why wait? <a href="about_us.php">Contact us today</a> to learn more about how we can help your small business succeed! </p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="convert()">Convert</button>
             </div>
           </div>
         </div>
-    </main>
-        <?php
+      </div>
+    </main> <?php
             include "subview/footer.inc.php";
-        ?> 
+        ?>
   </body>
 </html>

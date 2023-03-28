@@ -6,7 +6,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 11 Jan 2023, 9:37:39 am
     Author     : avintech
 */
-
+.modal {
+  transition-duration: 0.3s;
+}
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
@@ -133,15 +135,18 @@ h2 {
 }
 
 .modal-body {
-  max-height: 35vh;
+  max-height: 50vh;
+  overflow: auto;
 }
 .modal-body p {
   color: #000;
 }
 
 .modal-body img {
-  max-height: 20vh;
-  max-width: 20vw;
+  max-height: 50%;
+  width: 50%;
+  display: block;
+  margin: auto;
 }
 
 #bootstrap-overrides .modal-footer {
@@ -184,7 +189,7 @@ h2 {
   border-radius: 5px;
   font-weight: bold;
   color: #ffffff !important;
-  transition: all 1000ms;
+  transition: all 50ms;
   font-size: 15px;
   position: relative;
   overflow: hidden;
@@ -260,8 +265,8 @@ h2 {
 }
 
 #bootstrap-overrides .modal-dialog {
-  max-width: 800px; /* set the maximum width */
-  height: 500px; /* set the height */
+  max-width: 40vw; /* set the maximum width */
+/*  height: auto;*/
 }
 
 .modal-footer {
@@ -273,4 +278,12 @@ h2 {
 
 .modal-footer * {
   margin-bottom: 0; /* remove any default margins on elements */
+}
+
+@media (max-width: 576px) {
+  #bootstrap-overrides .modal-dialog {
+    max-width: 90vw;
+    max-height: 100%; 
+    margin: auto;
+  }
 }
