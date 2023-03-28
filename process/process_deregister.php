@@ -74,7 +74,7 @@ if (isset($_POST["deregister_otp"])) {
             if (password_verify($password, $row["password"]) && password_verify($otp, $row["otp"])) {
                 //delete account_transaction & transaction
                 $db->connect();
-                $qry = "DELETE t,tr FROM account_transaction t INNER JOIN account a ON t.account_id = a.account_id INNER JOIN transaction tr ON tr.transaction_id = t.transaction_id WHERE email = ?";
+                $qry = "DELETE t,tr FROM account_transaction t INNER JOIN account a ON t.account_id = a.account_id INNER JOIN transaction tr ON tr.transaction_id = t.transaction_id WHERE a.email = ?";
                 $result = $db->query($qry, $email);
                 //delete account
                 $qry = "DELETE FROM account WHERE email = ?";

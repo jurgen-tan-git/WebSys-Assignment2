@@ -34,7 +34,7 @@ function checkValue() {
     if (inputValue === 1) {
         return true; // submit the form
     } else {
-        alert("Telegram must be verified."); // show an error message
+        alert("Email must be valid."); // show an error message
         return false; // prevent the form from being submitted
     }
 }

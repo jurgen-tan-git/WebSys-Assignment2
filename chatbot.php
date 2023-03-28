@@ -60,7 +60,6 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="JS/responses.js"></script>
-<script src="JS/chat.js"></script>
-
+<script src="js/responses.js"></script>
+<script src="js/chat.js"></script>
 </html>

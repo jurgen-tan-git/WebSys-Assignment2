@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/footer.css">
 <footer class="footer">
+    <div class="text-center">
     <div class="waves">
         <div class="wave" id="wave1"></div>
         <div class="wave" id="wave2"></div>
@@ -21,15 +22,15 @@
             </a></li>
     </ul>
     <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">About Us</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Membership</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+        <li class="menu__item"><a class="menu__link" href="index.php">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="about_us.php">About Us</a></li>
+        <!--<li class="menu__item"><a class="menu__link" href="membership.php">Membership</a></li>-->
+        <li class="menu__item"><a class="menu__link" href="services.php">Services</a></li>
+        <li class="menu__item"><a class="menu__link" href="login.php">Login</a></li>
 
     </ul>
     <p>&copy;2023 Bank Of SIT | All Rights Reserved</p>
-    
+    </div>
 </footer>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">

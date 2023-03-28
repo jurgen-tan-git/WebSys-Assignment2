@@ -1,20 +1,17 @@
-body {
-    color: #ffff;
-    background: #ffff;
-    font-family: 'Roboto', sans-serif;
+h1, .text{
+    color:white;
 }
-.form-control {
-    border-color: #eee;
-    min-height: 41px;
-    box-shadow: none !important;
+
+.link {
+    color:skyblue;
+    text-decoration:underline;
+    cursor:pointer;
 }
-.form-control:focus {
-    border-color: #0c0121 ;
+button .btn{
+    padding-top: 5em;
 }
-.form-control, .btn {        
-    border-radius: 3px;
-}
-.signup-form {
+
+.transaction-form{
     width: 500px;
     height: auto;
     margin: 0 auto;
@@ -22,19 +19,19 @@ body {
     
 }
 @media (max-width: 768px) {
-  .signup-form {
+  .transaction-form{
     width: auto;
   }
 }
 
-.signup-form h2 {
+.transaction-form h2{
     color: #333;
     margin: 0 0 30px 0;
     display: inline-block;
     padding: 0 30px 10px 0;
     border-bottom: 3px solid #592f9b ;
 }
-.signup-form form {
+.transaction-form form{
     color: #999;
     border-radius: 3px;
     margin-bottom: 15px;
@@ -42,41 +39,37 @@ body {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     padding: 30px;
 }
-.signup-form .form-group {
+.transaction-form .form-group {
     margin-bottom: 20px;
 }
-.signup-form label {
+.transaction-form label {
     font-weight: normal;
 }
-.signup-form input[type="checkbox"] {
+.transaction-form input[type="checkbox"] {
     margin-top: 2px;
 }
-.signup-form .btn {        
+.transaction-form .btn {        
     font-weight: bold;
     background: #592f9b;
     border: none;
     margin-top: 20px;
     min-width: 140px;
 }
-.signup-form .btn:hover, .signup-form .btn:focus {
+.transaction-form .btn:hover, .transaction-.btn:focus {
     background: #592f9b ;
     outline: none !important;
 }
-.signup-form a {
+.transaction-form a {
     color: #592f9b;
     text-decoration: underline;
 }
-.signup-form a:hover {
+.transaction-form a:hover {
     text-decoration: none;
 }
-.signup-form form a {
+.transaction-form a {
     color: #592f9b;
     text-decoration: none;
 }	
-.signup-form form a:hover {
+.transaction-form a:hover {
     text-decoration: underline;
-}
-
-#login {
-    color:#592f9b;
 }
