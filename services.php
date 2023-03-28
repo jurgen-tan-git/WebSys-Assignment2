@@ -14,6 +14,9 @@
     <script defer src="js/main.js"></script>
     <script src="converter.js"></script>
   </head>
+  <?php
+        include "chatbot.php";
+    ?>
   <body id="bootstrap-overrides"> <?php
             include "subview/nav.inc.php";
         ?> <div class="bg-1">
@@ -83,7 +86,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="firstAnimation">
               <div class="secondAnimation">
-                <div class="card h-100" style="margin-bottom: 80px;" >
+                <div class="card h-100" style="margin-bottom: 80px;">
                   <div class="card-body">
                     <h3 class="card-title font-weight-bold">Retirement Planning</h3>
                     <p class="card-text">Plan for your retirement with our range of investment products and services, which can help you achieve your long-term financial goals.</p>
@@ -125,7 +128,7 @@
               </button>
             </div>
             <div class="modal-body">
-                <img src="/images/s8.jpg" alt="alt"/>
+              <img src="/images/s8.jpg" alt="alt" />
               <p>Open a checking account with us and enjoy easy access to your funds with low fees and competitive interest rates.</p>
               <p>Our checking accounts also come with free online banking and mobile app access, so you can manage your money on-the-go.</p>
             </div>
@@ -238,7 +241,11 @@
             </div>
           </div>
         </div>
-      </div> <?php include "subview/footer.inc.php"; ?>
     </main>
+    <div class="footer-margin"> 
+        <?php
+            include "subview/footer.inc.php";
+        ?> 
+    </div>
   </body>
 </html>
