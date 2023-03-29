@@ -35,8 +35,10 @@
         <main class="container">
             <div class="forgetpass-form">
                 <form class="forgetpass-form" action="process/process_login.php" method="POST">
-                    <h1>Reset your Password</h1>
-                    <p>An e-mail will be send to you with instructions on how to reset your password.</p>
+                    <div class="col-xs-8 col-xs-offset-4">
+                        <h2>Reset your Password</h2>
+                        <p>An e-mail will be send to you with instructions on how to reset your password.</p>
+                    </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <input type="hidden" name="forgotPassword" value="true">

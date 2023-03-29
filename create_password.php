@@ -32,7 +32,9 @@
             <?php if($validReq): ?>
                 <div class="createpass-form">
                     <form class="createpass-form" action="process/process_login.php" method="POST">
-                        <h1>Create New Password</h1>
+                        <div class="col-xs-8 col-xs-offset-4">
+                            <h2>Create New Password</h2>
+                        </div>
                         <div class="row form-group">
                             <label class="text-black control-label col-xs-4" for="passwordField">Password:</label>
                             <input type="password" class="form-control" id="passwordField" required placeholder="Enter new password" name="password" >
