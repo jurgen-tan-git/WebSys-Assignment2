@@ -16,7 +16,7 @@ if (!empty($_GET['deregister_otp'])){
         //if set
         //get tg id and email from session
         $chat_id = $_SESSION['telegram_id'];
-        $email = $_SESSION['email'];
+        $email = sanitize_input($_SESSION['email']);
         header('Content-Type: text/plain');
         error_reporting(E_ERROR | E_PARSE);
         //otp
@@ -51,9 +51,9 @@ if (!empty($_GET['deregister_otp'])){
 
 //form sent
 if (isset($_POST["deregister_otp"])) {
-    $password = $_POST["pwd"];
-    $otp = $_POST["otp"];
-    $email = $_SESSION["email"];
+    $password = sanitize_post($_POST["pwd"]);
+    $otp = sanitize_input($_POST["otp"]);
+    $email = sanitize_input($_SESSION["email"]);
     // check if email field
     if (!isset($_SESSION["email"]) || empty($password) || empty($otp)) {
         //check if have have email or password
@@ -93,7 +93,7 @@ if (isset($_POST["deregister_otp"])) {
     }   
 }
 if (isset($_POST["input-otp"])){        
-    $input = $_POST["input-otp"];
+    $input = sanitize_input($_POST["input-otp"]);
     // check if email field
     if (empty($input)) {
         session_destroy();
@@ -138,4 +138,12 @@ function curl_req($link){
     curl_close($cURLConnection);
     return json_decode($curl_result,true);
 }
+
+function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>

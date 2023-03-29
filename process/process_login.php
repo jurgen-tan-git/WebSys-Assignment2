@@ -6,8 +6,8 @@
     $db = new Mysql_Driver();
 
     if (isset($_POST["authenticate"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+        $email = sanitize_input($_POST["email"]);
+        $password = sanitize_input($_POST["password"]);
         // check if email field
         if (empty($email) || empty($password)) {
             // check if email field
@@ -99,7 +99,7 @@
             $url = "create_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
             
             // Set expiry for tokens
-            $email = $_POST["email"];
+            $email = santize_input($_POST["email"]);
 
             $db->connect();
             $qry = "DELETE FROM pwd_reset WHERE email=?";
@@ -213,5 +213,13 @@
                 }
             }
         }
+    }
+    
+    function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 ?>
