@@ -43,10 +43,10 @@
             $success = false;
         }
         else{
-            // if(!password_verify($_POST["pwd_confirm"],$pwd)){
-            //     $errorMsg .= "Passwords do not match.<br>";
-            //     $success = false;
-            // }
+            if(!password_verify($_POST["pwd_confirm"],$pwd)){
+                $errorMsg .= "Passwords do not match.<br>";
+                $success = false;
+            }
         }
     
         if (empty($_POST["email"]))

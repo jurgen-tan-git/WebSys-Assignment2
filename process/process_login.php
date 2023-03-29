@@ -5,16 +5,23 @@
     include_once '../helpers/sql.php';
     $db = new Mysql_Driver();
 
+    
+    function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     if (isset($_POST["authenticate"])) {
-        $email = sanitize_input($_POST["email"]);
-        $password = sanitize_input($_POST["password"]);
-        // check if email field
-        if (empty($email) || empty($password)) {
-            // check if email field
+        if (empty($_POST["email"]) || empty($_POST["password"])) {
             session_destroy();
             header("Location: login.php");
             exit;
         } else {
+            $email = sanitize_input($_POST["email"]);
+            $password = sanitize_input($_POST["password"]);
             // check if account is valid
             $db->connect();
             $qry = "SELECT * FROM account WHERE email = ?";
@@ -52,13 +59,13 @@
     }
 
     if (isset($_POST["input-otp"])){        
-        $input = $_POST["input-otp"];
         // check if email field
-        if (empty($input)) {
+        if (empty($_POST["input-otp"])) {
             session_destroy();
             header("Location: ../login.php");
             exit;
         } else {
+            $input = sanitize_input($_POST["input-otp"]);
             // check if otp is valid
             $db->connect();
             $qry = "SELECT * FROM account WHERE email = ?";
@@ -91,66 +98,77 @@
     }
 
     if (isset($_POST["forgotPassword"])) {
-        try {
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
-            $selector = bin2hex(random_bytes(8));
-            $token = random_bytes(32);
+        if (empty($_POST["forgotPassword"])||empty($_POST['email'])) {
+            session_destroy();
+            header("Location: ../login.php");
+            exit;
+        }else{
+            try {
+                $mail = new PHPMailer\PHPMailer\PHPMailer();
+                $selector = bin2hex(random_bytes(8));
+                $token = random_bytes(32);
 
-            $url = "create_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
-            
-            // Set expiry for tokens
-            $email = santize_input($_POST["email"]);
+                $url = "create_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+                
+                // Set expiry for tokens
+                $email = sanitize_input($_POST["email"]);
 
-            $db->connect();
-            $qry = "DELETE FROM pwd_reset WHERE email=?";
-            $result = $db->query($qry, $email);
-            $qry = "INSERT INTO pwd_reset (email, reset_selector, reset_token, reset_expires) VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 30 MINUTE))";
-            $hashedToken = password_hash($token, PASSWORD_DEFAULT);
-            $result = $db->query($qry, $email, $selector, $hashedToken);
-            $db->close();
-            
-            // Prepare email
-            $mail->IsSMTP(); // enable SMTP
-            $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
-            $mail->SMTPAuth = true;  // authentication enabled
-            $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
-            $mail->Host = 'smtp-mail.outlook.com';
-            $mail->Port = 587;
-            
-            $mail->Username = 'bosit.hello@outlook.com';
-            $mail->Password = 'inf1005test';
-            
-            $mail->setFrom('bosit.hello@outlook.com', 'Bank of SIT');
-            $mail->AddAddress($email); //to
-            //Message
-            $mail->isHTML();
-            $mail->Subject = 'Reset password for your Bank of SIT account.';
-            $message = "<p>The link to reset your password is at the bottom of this email.
-            If you did not make this request, please ignore this email</p>
-            <p><b>(This is auto-generated. Please do not reply to this email)</b></p>";
-            $message .= "<p> Here is your password reset link: </br>";
-            $message .= '<a href="' .$_SERVER['SERVER_NAME']."/". $url . '">' .$_SERVER['SERVER_NAME']."/". $url . '</a></p>';
-            $mail->Body = $message;
+                $db->connect();
+                $qry = "DELETE FROM pwd_reset WHERE email=?";
+                $result = $db->query($qry, $email);
+                $qry = "INSERT INTO pwd_reset (email, reset_selector, reset_token, reset_expires) VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 30 MINUTE))";
+                $hashedToken = password_hash($token, PASSWORD_DEFAULT);
+                $result = $db->query($qry, $email, $selector, $hashedToken);
+                $db->close();
+                
+                // Prepare email
+                $mail->IsSMTP(); // enable SMTP
+                $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
+                $mail->SMTPAuth = true;  // authentication enabled
+                $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
+                $mail->Host = 'smtp-mail.outlook.com';
+                $mail->Port = 587;
+                
+                $mail->Username = 'bosit.hello@outlook.com';
+                $mail->Password = 'inf1005test';
+                
+                $mail->setFrom('bosit.hello@outlook.com', 'Bank of SIT');
+                $mail->AddAddress($email); //to
+                //Message
+                $mail->isHTML();
+                $mail->Subject = 'Reset password for your Bank of SIT account.';
+                $message = "<p>The link to reset your password is at the bottom of this email.
+                If you did not make this request, please ignore this email</p>
+                <p><b>(This is auto-generated. Please do not reply to this email)</b></p>";
+                $message .= "<p> Here is your password reset link: </br>";
+                $message .= '<a href="' .$_SERVER['SERVER_NAME']."/". $url . '">' .$_SERVER['SERVER_NAME']."/". $url . '</a></p>';
+                $mail->Body = $message;
 
-            if (!$mail->send()) {
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-                $pageUrl = "../forgot_password.php?reset=fail";
-            } else {
-                echo 'Message sent!';
-                $pageUrl = "../forgot_password.php?reset=success";
+                if (!$mail->send()) {
+                    echo 'Mailer Error: ' . $mail->ErrorInfo;
+                    $pageUrl = "../forgot_password.php?reset=fail";
+                } else {
+                    echo 'Message sent!';
+                    $pageUrl = "../forgot_password.php?reset=success";
+                }
+                header("Location: $pageUrl");
+                exit();
+            } catch (Exception $e) {
+                echo $e;
+                die($e->getMessage());
             }
-            header("Location: $pageUrl");
-            exit();
-        } catch (Exception $e) {
-            echo $e;
-            die($e->getMessage());
         }
     }
     if (isset($_POST["createNewPassword"])) {
-        $selector = $_POST["selector"];
-        $validator = $_POST["validator"];
-        $password = $_POST["password"];
-        $cfmPassword = $_POST["cfmPassword"];
+        if (empty($_POST["selector"])||empty($_POST["validator"])||empty($_POST["password"])||empty($_POST["cfmPassword"])){
+            header("Location: ../forgot_password.php");
+            exit;
+        }else{
+            $selector = $_POST["selector"];
+            $validator = $_POST["validator"];
+            $password = sanitize_input($_POST["password"]);
+            $cfmPassword = sanitize_input($_POST["cfmPassword"]);
+        }
 
         if (empty($password) || empty($cfmPassword)) {
             $pageUrl = '../create_password.php' . "?selector=" . $selector . "&validator=" . $validator . "&error=empty";
@@ -213,13 +231,5 @@
                 }
             }
         }
-    }
-    
-    function sanitize_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
     }
 ?>

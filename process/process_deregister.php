@@ -51,15 +51,15 @@ if (!empty($_GET['deregister_otp'])){
 
 //form sent
 if (isset($_POST["deregister_otp"])) {
-    $password = sanitize_post($_POST["pwd"]);
-    $otp = sanitize_input($_POST["otp"]);
-    $email = sanitize_input($_SESSION["email"]);
     // check if email field
-    if (!isset($_SESSION["email"]) || empty($password) || empty($otp)) {
+    if (!isset($_SESSION["email"]) || empty($_POST["pwd"]) || empty($_POST["otp"])|| empty($_SESSION['email'])) {
         //check if have have email or password
         header("Location: ../close_account.php?error=empty");
         exit;
     } else {
+        $password = sanitize_input($_POST["pwd"]);
+        $otp = sanitize_input($_POST["otp"]);
+        $email = sanitize_input($_SESSION["email"]);
         //check if account is valid
         $db->connect();
         $qry = "SELECT * FROM account WHERE email = ?";
@@ -93,13 +93,13 @@ if (isset($_POST["deregister_otp"])) {
     }   
 }
 if (isset($_POST["input-otp"])){        
-    $input = sanitize_input($_POST["input-otp"]);
     // check if email field
-    if (empty($input)) {
+    if (empty($_POST["input-otp"])) {
         session_destroy();
         header("Location: ../login.php");
         exit;
     } else {
+        $input = sanitize_input($_POST["input-otp"]);
         // check if otp is valid
         $db->connect();
         $qry = "SELECT * FROM account WHERE email = ?";

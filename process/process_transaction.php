@@ -7,6 +7,14 @@
     $account_id = $_SESSION['user_id'];
     $balance = $_SESSION['balance'];
 
+    function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     if (empty($email)|empty($account_id)) {
         // check if email field
         session_destroy();
@@ -16,22 +24,24 @@
 
     //update balanace
     if (isset($_POST["updateBalance"])) {
-        $balance = $_POST["balance"];
-        $email = $_POST["email"];
-        updateBalance($balance,$email);
+        if(empty($_POST["balance"])||empty($_POST["email"])){
+            header("Location: account.php");
+            exit;
+        }else{
+            $balance = sanitize_input($_POST["balance"]);
+            $email = sanitize_input($_POST["email"]);
+            updateBalance($balance,$email);
+        }
     }
 
     if(isset($_POST["addTransaction"])){
-        $type = $_POST["type"];
-        $amount = $_POST["amount"];
-        if (empty($type)|empty($amount)) {
-            //show fail
-            echo $type;
-            echo $amount;
+        if (empty($_POST["type"])|empty($_POST["amount"])) {
+            header("Location: account.php");
             exit;
         }
+        $type = sanitize_input($_POST["type"]);
+        $amount = sanitize_input($_POST["amount"]);
         $result = createTransaction($type,$amount,$email);
-        echo $result;
         header("Location: ../account.php");
     }
 

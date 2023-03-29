@@ -7,14 +7,14 @@ $db = new Mysql_Driver();
 //get request to send otp for deregister
 //need to get 
 if (!empty($_GET['email'])){
-    $toEmail = $_GET['email'];
     //check !isset $_SESSION['telegram_id'] & $_SESSION['email']
-    if(empty($toEmail)|| !isset($_SESSION['email'])){
+    if(empty($_GET['email'])|| !isset($_SESSION['email'])){
         //if not set
         session_destroy();
         Header('Location: ../login.php?error');
         exit();
     }else{
+        $toEmail = sanitize_input($_GET['email']);
         header('Content-Type: text/plain');
         error_reporting(E_ERROR | E_PARSE);
         //check if toEmail exist
@@ -38,15 +38,15 @@ if (!empty($_GET['email'])){
 
 //form sent
 if (isset($_POST["transfer"])) {
-    $email = $_SESSION["email"];
     // check if email field
     if (!isset($_SESSION["email"]) || empty($_POST['toAccount']) || empty($_POST['amount'])) {
         //check if have have email or password
         header("Location: ../transfer.php?error=empty");
         exit;
     } else {
-        $toEmail = $_POST['toAccount'];
-        $amount = $_POST['amount'];
+        $email = $_SESSION["email"];
+        $toEmail = sanitize_input($_POST['toAccount']);
+        $amount = sanitize_input($_POST['amount']);
         //deduct from email
         createTransaction(0,$amount,$email,$toEmail);
         //add to toEmail
@@ -156,4 +156,11 @@ function updateBalance($balance)
         return $result;
     }
 }
+function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 ?>

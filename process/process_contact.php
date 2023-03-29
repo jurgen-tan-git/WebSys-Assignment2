@@ -2,10 +2,10 @@
     require_once __DIR__. '/../vendor/autoload.php';
     if (isset($_POST['submit'])){
         if (isset($_POST['name'])||isset($_POST['subject'])||isset($_POST['mail'])||isset($_POST['message'])){
-            $name = $_POST['name'];
-            $subject = $_POST['subject'];
-            $mailTo = $_POST['mail'];
-            $message = $_POST['message'];
+            $name = sanitize_input($_POST['name']);
+            $subject = sanitize_input($_POST['subject']);
+            $mailTo = sanitize_input($_POST['mail']);
+            $message = sanitize_input($_POST['message']);
             try{        
                 $mail = new PHPMailer\PHPMailer\PHPMailer();
                 
@@ -44,4 +44,12 @@
         }
     }
 //Not sure if we have a email but bankofsit@gmail.com and pw is Bankofsit1009
+function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
 ?>
