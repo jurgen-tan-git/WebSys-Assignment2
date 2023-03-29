@@ -1,0 +1,62 @@
+.forgetpass-form{
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px 0;
+    
+}
+@media (max-width: 768px) {
+  .forgetpass-form{
+    width: auto;
+  }
+}
+
+.forgetpass-form h2{
+    color: #333;
+    margin: 0 0 30px 0;
+    display: inline-block;
+    padding: 0 30px 10px 0;
+    border-bottom: 3px solid #592f9b ;
+}
+.forgetpass-form form{
+    color: #999;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.forgetpass-form .form-group {
+    margin-bottom: 20px;
+}
+.forgetpass-form label {
+    font-weight: normal;
+}
+.forgetpass-form input[type="checkbox"] {
+    margin-top: 2px;
+}
+.forgetpass-form .btn {        
+    font-weight: bold;
+    background: #592f9b;
+    border: none;
+    margin-top: 20px;
+    min-width: 140px;
+}
+.forgetpass-form .btn:hover, .transaction-.btn:focus {
+    background: #592f9b ;
+    outline: none !important;
+}
+.forgetpass-form a {
+    color: #592f9b;
+    text-decoration: underline;
+}
+.forgetpass-form a:hover {
+    text-decoration: none;
+}
+.forgetpass-form a {
+    color: #592f9b;
+    text-decoration: none;
+}	
+.forgetpass-form a:hover {
+    text-decoration: underline;
+}
