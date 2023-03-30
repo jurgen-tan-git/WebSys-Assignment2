@@ -28,13 +28,13 @@
 
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 2</div>
-                        <img src="images/Cardbanner.png" style="width:100%">
+                        <img src="images/Cardbanner.png" style="width:100%" alt="Get neoslife today">
                         <!--<div class="text">Bank today with BANK OF SIT</div>-->
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 2</div>
-                        <img src="images/Cardbanner2.png" style="width:100%">
+                        <img src="images/Cardbanner2.png" style="width:100%" alt="Enjoy the world with the SIT platinum card!">
                         <!--<div class="text">The only reliable bank you need</div>-->
                     </div>
                 </div>
@@ -66,10 +66,10 @@
                                       <h3>NeosLife</h3>
                                       <div class="card-inner">                                          
                                           <div class="front">
-                                              <img src="images/card_face.png" alt="alt" class="card-img">
+                                              <img src="images/card_face.png" class="card-img" alt="front of card">
                                           </div>
                                           <div class="back">
-                                              <img src="images/card_back.png" alt="alt" class="card-img">
+                                              <img src="images/card_back.png" class="card-img" alt="back of card">
                                           </div>
                                       </div>
                                   </div>
@@ -95,10 +95,10 @@
                                       <h3>Platinum</h3>
                                       <div class="card-inner">                                          
                                           <div class="front">
-                                              <img src="images/card_face_2.png" alt="alt" class="card-img">
+                                              <img src="images/card_face_2.png" class="card-img" alt="front of card">
                                           </div>
                                           <div class="back">
-                                              <img src="images/card_back.png" alt="alt" class="card-img">
+                                              <img src="images/card_back.png" class="card-img" alt="back of card">
                                           </div>
                                       </div>
                                   </div>
@@ -128,4 +128,3 @@
     </body>
 
 </html>
-*{

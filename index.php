@@ -16,7 +16,8 @@
         <?php
             include "subview/nav.inc.php";
         ?>
-        <div img src="images/black.jpg"  width="500" height="110">
+        <h1></h1>
+        <div img src="images/black.jpg"  width="500" height="110" alt="black image">
         </div>
         <main class="container">
             <div class="top-container">
@@ -48,7 +49,7 @@
                     <span class="dot"></span> 
                     <span class="dot"></span> 
                 </div>
-                <img src="images/daily.jpg"  style="width:100%">
+                <img src="images/daily.jpg"  style="width:100%" alt="Daily interest, for real.">
                 <p><center> <h7>Get interest credited to your Bank of SIT
                         Savings Account daily, not monthly.
                         Yay to earning interest on your interest every
@@ -64,10 +65,10 @@
                              alt="GeeksforGeeks logo"> 
                     </marquee>  
                 </center>
-                <img src="images/lockin.jpg"  style="width:100%">
+                <img src="images/lockin.jpg"  style="width:100%" alt="No lock in, no penalties">
                                 <p><center> <h7>Withdraw any amount, anytime back to your
 main account.</h7></center></p>
-                <img src="images/ready.jpg"  style="width:100%">
+                <img src="images/ready.jpg"  style="width:100%" alt="ready">
                  <p><center> <h7>Save better.</h7></center></p>
             <p><center> <h7>Save with Bank of SIT.</h7></center></p>
                 <p><center> <h8>Bank of SIT is the ideal online banking website for those seeking a dependable, high-yield savings account.
@@ -75,7 +76,7 @@ With an impressive interest rate and no minimum deposit requirement, Bank of SIT
 What distinguishes Bank of SIT from other online banking sites is that it is supported by the Singaporean government,
 ensuring the safety and security of your money.
 This peace of mind, combined with the convenience of online banking, makes Bank of SIT an excellent option for anyone looking to optimize their savings.</h8></center></p>
-                <img src="images/end.jpg"  style="width:100%">
+                <img src="images/end.jpg"  style="width:100%" alt="moving image of bank">
 <p><center> <h7>Started in singapore, backed by Singapore</h7></center></p>
                 <p><center> <h8>
 Bank of SIT is a reliable and trustworthy banking app that offers the highest regulatory standards in the industry.
