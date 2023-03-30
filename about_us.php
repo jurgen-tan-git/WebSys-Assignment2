@@ -62,7 +62,7 @@
                             <div class="row form-group">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label class="text-black control-label col-xs-4" for="fname"> First Name</label>
-                                    <input type="text" name="name" id="fname" class="form-control" placeholder="First Name">
+                                    <input type="text" name="name" id="fname" class="form-control" placeholder="First Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="text-black control-label col-xs-4" for="lname">Last Name</label>
@@ -72,7 +72,7 @@
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="text-black control-label col-xs-4" for="email">Email </label>
-                                    <input type="email" name="mail" id="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="mail" id="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="row form-group">
