@@ -103,3 +103,23 @@ img {
 .container {
   padding: 2rem 0rem;
 }
+
+
+.holder {
+  padding:0.5rem;
+  overflow: hidden;
+}
+.moving-text {
+  animation : slide 10s linear infinite;
+  
+}
+
+@keyframes slide {
+  0% {
+    transform: translatex(0%)
+  }
+
+  100% {
+    transform: translatex(100%)
+  }
+}

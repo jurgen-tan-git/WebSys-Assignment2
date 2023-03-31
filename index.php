@@ -53,15 +53,16 @@
                         Yay to earning interest on your interest every
                         day!*</h1>
             
-                    <marquee  behavior="alternate" direction="left">          
-                        <img src="images/Cardbanner.png" width="400" height="150"
+                    <div class="holder">
+                        <img class="moving-text" src="images/Cardbanner.png" width="400" height="150"
                              alt="GeeksforGeeks logo"> 
-                    </marquee>  
+                    </div>
 
-                    <marquee  behavior="alternate" direction="right">         
-                        <img src="images/Cardbanner2.png" width="400" height="150"
+                    <div class="holder">
+                        <img class="moving-text" src="images/Cardbanner2.png" width="400" height="150"
                              alt="GeeksforGeeks logo"> 
-                    </marquee>  
+                    </div>
+                
                 <img src="images/lockin.jpg"  style="width:100%" alt="No lock in, no penalties">
                                  <h1>Withdraw any amount, anytime back to your
 main account.</h1>
