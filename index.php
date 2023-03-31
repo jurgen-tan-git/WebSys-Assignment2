@@ -16,7 +16,6 @@
         <?php
             include "subview/nav.inc.php";
         ?>
-        <h1></h1>
         <div img src="images/black.jpg"  width="500" height="110" alt="black image">
         </div>
         <main class="container">
@@ -25,19 +24,19 @@
 
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 3</div>
-                        <img src="images/intro.jpg" style="width:100%">
+                        <img src="images/intro.jpg" style="width:100%" alt="intro">
                         <!--<div class="text">Bank today with BANK OF SIT</div>-->
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 3</div>
-                        <img src="images/nomin.jpg" style="width:100%">
+                        <img src="images/nomin.jpg" style="width:100%" alt="nomin">
                         <!--<div class="text">The only reliable bank you need</div>-->
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 3</div>
-                        <img src="images/interest.jpg" style="width:100%">
+                        <img src="images/interest.jpg" style="width:100%" alt="interest">
                         <!--<div class="text">Sky high interest</div>-->
                     </div>
 
@@ -50,10 +49,10 @@
                     <span class="dot"></span> 
                 </div>
                 <img src="images/daily.jpg"  style="width:100%" alt="Daily interest, for real.">
-                <p><center> <h7>Get interest credited to your Bank of SIT
+                <h1>Get interest credited to your Bank of SIT
                         Savings Account daily, not monthly.
                         Yay to earning interest on your interest every
-                        day!*</h7></center></p>
+                        day!*</h1>
             
                     <marquee  behavior="alternate" direction="left">          
                         <img src="images/Cardbanner.png" width="400" height="150"
@@ -64,26 +63,25 @@
                         <img src="images/Cardbanner2.png" width="400" height="150"
                              alt="GeeksforGeeks logo"> 
                     </marquee>  
-                </center>
                 <img src="images/lockin.jpg"  style="width:100%" alt="No lock in, no penalties">
-                                <p><center> <h7>Withdraw any amount, anytime back to your
-main account.</h7></center></p>
+                                 <h1>Withdraw any amount, anytime back to your
+main account.</h1>
                 <img src="images/ready.jpg"  style="width:100%" alt="ready">
-                 <p><center> <h7>Save better.</h7></center></p>
-            <p><center> <h7>Save with Bank of SIT.</h7></center></p>
-                <p><center> <h8>Bank of SIT is the ideal online banking website for those seeking a dependable, high-yield savings account.
+                  <h1>Save better.</h1>
+             <h1>Save with Bank of SIT.</h1>
+                 <h2>Bank of SIT is the ideal online banking website for those seeking a dependable, high-yield savings account.
 With an impressive interest rate and no minimum deposit requirement, Bank of SIT is accessible to everyone, irrespective of their financial standing.
 What distinguishes Bank of SIT from other online banking sites is that it is supported by the Singaporean government,
 ensuring the safety and security of your money.
-This peace of mind, combined with the convenience of online banking, makes Bank of SIT an excellent option for anyone looking to optimize their savings.</h8></center></p>
+This peace of mind, combined with the convenience of online banking, makes Bank of SIT an excellent option for anyone looking to optimize their savings.</h2>
                 <img src="images/end.jpg"  style="width:100%" alt="moving image of bank">
-<p><center> <h7>Started in singapore, backed by Singapore</h7></center></p>
-                <p><center> <h8>
+ <h1>Started in Singapore, backed by Singapore</h1>
+                 <h2>
 Bank of SIT is a reliable and trustworthy banking app that offers the highest regulatory standards in the industry.
 You can bank in peace knowing that your personal information and financial transactions are secure.
 With features like checking account balances, transferring funds, and paying bills,
 you can manage your finances efficiently from anywhere.
-Sign up now to enjoy the peace of mind that comes with banking with a trusted partner.</h8></center></p>
+Sign up now to enjoy the peace of mind that comes with banking with a trusted partner.</h2>
             </div>
         </main>
         <?php
