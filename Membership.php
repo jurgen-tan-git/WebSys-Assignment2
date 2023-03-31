@@ -21,6 +21,7 @@
         ?>
     <body>
         <main class="container">
+                <h1 class="text-center mb-3">Membership</h1>
             <section>
             <div class="top-container">
                 <div class="slideshow-container">
@@ -48,7 +49,6 @@
             
             <section>         
             <div class="container-card">
-                <h1 class="text-center mb-3"></h1>
                 <table class="table table-striped">
                   <thead class="thead-dark">
                     <tr>
@@ -62,7 +62,7 @@
                           <td>
                               <div class="container-card">
                                   <div class="card-1">
-                                      <h3>NeosLife</h3>
+                                      <h2>NeosLife</h2>
                                       <div class="card-inner">                                          
                                           <div class="front">
                                               <img src="images/card_face.png" class="card-img" alt="front of card">
@@ -76,12 +76,12 @@
                           </td>
                           <td>
                               <div class="container-function">
-                                <h4>Debit Card </h4>  
+                                <h3>Debit Card </h3>  
                               </div>
                           </td>
                         <td>
                             <div class="card-reward">
-                                <h4> 1 X </h4>
+                                <h3> 1 X </h3>
                             </div>
                         </td>
                       </tr>
@@ -91,7 +91,7 @@
                           <td>
                               <div class="container-card">
                                   <div class="card-1">
-                                      <h3>Platinum</h3>
+                                      <h2>Platinum</h2>
                                       <div class="card-inner">                                          
                                           <div class="front">
                                               <img src="images/card_face_2.png" class="card-img" alt="front of card">
@@ -105,13 +105,13 @@
                           </td>
                           <td>
                               <div class="container-function">
-                                <h4>Credit Card</h4>
-                                <h4>Debit Card </h4>  
+                                <h3>Credit Card</h3>
+                                <h3>Debit Card </h3>  
                               </div>
                           </td>
                         <td>
                             <div class="card-reward">
-                                <h4>2 X</h4>
+                                <h3>2 X</h3>
                             </div>
                         </td>
                       </tr>
