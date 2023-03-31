@@ -28,10 +28,10 @@
         </script>
         <script defer src="js/main.js"></script>
     </head>
-    <body>
         <?php
             include "subview/nav.inc.php";
         ?>
+    <body>
         <main class="container">
             <div class="forgetpass-form">
                 <form class="forgetpass-form" action="process/process_login.php" method="POST">
@@ -60,8 +60,8 @@
                 <small><a href="<?php echo $helper->pageUrl("index.php")?>" id="backBtn"><u>Back to Login</u></a></small>
             </div>
         </main>
+    </body>
         <?php
             include "subview/footer.inc.php";
         ?> 
-    </body>
 </html>

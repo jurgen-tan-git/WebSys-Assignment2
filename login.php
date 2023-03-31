@@ -16,9 +16,10 @@
 
     </head>
 
+    <?php
+        include "subview/nav.inc.php";?>
     <body>
         <?php
-        include "subview/nav.inc.php";
         $login_error = "";
         $register_msg = "";
         $success_reset = "";
@@ -91,9 +92,9 @@
                 </div>
             </div>
         </main>
+    </body>
         <?php
         include "subview/footer.inc.php";
         ?>
-    </body>
 
 </html>

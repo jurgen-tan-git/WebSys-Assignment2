@@ -12,9 +12,10 @@
   <link rel="stylesheet" href="css/table.css">
 </head>
 
+<?php
+            include "subview/nav.inc.php";?>
 <body>
         <?php
-            include "subview/nav.inc.php";
             include_once 'helpers/sql.php';
             $db = new Mysql_Driver();
             if (!isset($_SESSION['email'])|!isset($_SESSION['user_id'])|!isset($_SESSION['telegram_id'])|!isset($_SESSION['fname'])) {
@@ -111,9 +112,8 @@
   </div>
   <div>
   </div>
+</body>
         <?php
             include "subview/footer.inc.php";
         ?>       
-</body>
-
 </html>

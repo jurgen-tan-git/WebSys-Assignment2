@@ -16,11 +16,10 @@
 
     </head>
 
-    <body>
-        <?php
+    <?php
         include "subview/nav.inc.php";
         ?>
-
+    <body>
         <main class="container">
             <section>
             <div class="top-container">
@@ -122,9 +121,9 @@
         </section>
             
         </main>
+    </body>
         <?php
         include "subview/footer.inc.php";
         ?>
-    </body>
 
 </html>

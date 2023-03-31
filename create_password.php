@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/createpass.css">
     </head>
     <?php include "subview/nav.inc.php" ?>
+    <body>
     <main class="container">
         <div class="login">
             <?php if($validReq): ?>
@@ -65,6 +66,7 @@
         <!-- img logo here -->
 
     </main>
+    </body>
         <?php
             include "subview/footer.inc.php";
         ?>       

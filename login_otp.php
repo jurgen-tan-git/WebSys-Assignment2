@@ -15,7 +15,9 @@
     <script defer src="js/main.js"></script>
     <script defer src="js/login_otp.js"></script>
 </head>
-
+<?php
+    include "subview/nav.inc.php";
+?>
 <body>
     <?php
     include "subview/nav.inc.php";
@@ -62,9 +64,8 @@
         </form>
         </div>
     </main>
-        <?php
-        include "subview/footer.inc.php";
-        ?>
 </body>
-
+<?php
+include "subview/footer.inc.php";
+?>
 </html>

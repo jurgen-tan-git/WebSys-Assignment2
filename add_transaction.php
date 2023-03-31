@@ -13,9 +13,10 @@
         <script defer src="js/register.js"></script>
         <link rel="stylesheet" href="css/account.css">
     </head>
+        <?php
+        include "subview/nav.inc.php";?>
     <body>
         <?php
-        include "subview/nav.inc.php";
         $verify_bot = "Verify";
         $register_error = "";
         if (!isset($_SESSION['email']) | !isset($_SESSION['user_id']) | !isset($_SESSION['telegram_id']) | !isset($_SESSION['fname'])) {
@@ -57,11 +58,8 @@
                 </div>
                 </form>
         </main>
+    </body>
         <?php
         include "subview/footer.inc.php";
-        ?>       
-    </body>
-    <script>
-
-    </script>
+        ?>  
 </html>

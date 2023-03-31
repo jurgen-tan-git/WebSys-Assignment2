@@ -15,9 +15,10 @@
         <script defer src="js/main.js"></script>
         <script defer src="js/register.js"></script>
 </head>
+<?php
+    include "subview/nav.inc.php";?>
 <body>
 <?php
-    include "subview/nav.inc.php";
     $verify_bot = "Verify";
     $register_error = "";
     if (isset($_GET["error"])) {
@@ -96,8 +97,8 @@
     </form>
 	
 </div>
+</body>
         <?php
             include "subview/footer.inc.php";
         ?>   
-</body>
 </html>

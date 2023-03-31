@@ -13,9 +13,8 @@
     <script defer src="js/main.js"></script>
   </head> <?php
         include "chatbot.php";
-    ?> <body id="bootstrap-overrides"> <?php
-            include "subview/nav.inc.php";
-        ?> <section>
+        include "subview/nav.inc.php";
+    ?> <body id="bootstrap-overrides"> <section>
       <div class="bg-1">
         <h1>Put your dollar to work.</h1>
       </div>
@@ -212,8 +211,8 @@
           </div>
         </div>
       </div>
-    </main> <?php
+    </main> 
+  </body><?php
             include "subview/footer.inc.php";
         ?>
-  </body>
 </html>

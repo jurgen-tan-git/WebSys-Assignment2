@@ -19,9 +19,10 @@
         <script defer src="js/main.js"></script>
         <script defer src="js/transfer.js"></script>
     </head>
+        <?php
+        include "subview/nav.inc.php";?>
     <body>
         <?php
-        include "subview/nav.inc.php";
         $verify_bot = "Verify";
         $register_error = "";
         if (!isset($_SESSION['email']) | !isset($_SESSION['user_id']) | !isset($_SESSION['telegram_id']) | !isset($_SESSION['fname'])) {
@@ -65,9 +66,8 @@
                     </form>
                 </div>
         </main>
-
+    </body>
         <?php
         include "subview/footer.inc.php";
         ?>       
-    </body>
 </html>

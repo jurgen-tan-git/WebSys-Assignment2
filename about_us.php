@@ -13,13 +13,10 @@
     </head>
     <?php
     include "chatbot.php";
+    include "subview/nav.inc.php";
     ?>
 
     <body>
-
-        <?php
-        include "subview/nav.inc.php";
-        ?>
 
         <main class="container">
             <div class="top-container">
@@ -101,8 +98,8 @@
             </div>
 
         </main>
+    </body>
         <?php
         include "subview/footer.inc.php";
         ?>    
-    </body>
 </html>

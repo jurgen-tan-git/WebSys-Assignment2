@@ -11,11 +11,10 @@
         <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap" rel="stylesheet">
         <script defer src="js/main.js"></script>
     </head>
-    
-    <body>
-        <?php
+    <?php
             include "subview/nav.inc.php";
         ?>
+    <body>
         <div img src="images/black.jpg"  width="500" height="110" alt="black image">
         </div>
         <main class="container">
@@ -83,9 +82,9 @@ With features like checking account balances, transferring funds, and paying bil
 you can manage your finances efficiently from anywhere.
 Sign up now to enjoy the peace of mind that comes with banking with a trusted partner.</h2>
             </div>
-        </main>
+        </main>     
+    </body>
         <?php
             include "subview/footer.inc.php";
-        ?>       
-    </body>
+        ?>  
 </html>
